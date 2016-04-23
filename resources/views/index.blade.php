@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="myApp">
     <head>
         <title>Laravel</title>
 
@@ -37,9 +37,11 @@
     </head>
     <body>
         <div class="container">
-            <div class="content">
-                <div class="title">Laravel 5</div>
+            <div class="content" ng-controller="helloWorldController as helloCtrl">
+                <div class="title">@{{ helloCtrl.hello }}</div>
             </div>
         </div>
     </body>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
 </html>
