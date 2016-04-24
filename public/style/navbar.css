@@ -38,3 +38,7 @@
 .navbar-header {
     color: white;
 }
+
+.navbar {
+    margin-bottom: 0px;
+}

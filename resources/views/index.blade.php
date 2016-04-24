@@ -6,7 +6,7 @@
 
 @section('content')
     @include("../include/navbar")
-    <div class="container" ng-app="myApp">
+    <div ng-app="myApp">
 
         <div ng-view></div>
 
