@@ -1,62 +1,59 @@
 @extends('template/app')
 
 @section('title')
-    Publications institut Charles Delaunay
+    Publications Institut Charles Delaunay
 @stop
 
 @section('content')
-    <nav class="navbar navbar-default navbar-inverse" role="navigation">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#">JeSaisPasTrop</a>
-            </div>
+    @include("../include/navbar")
+    <div class="container" ng-app="myApp">
 
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right">
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>se connecter</b> <span class="caret"></span></a>
-                        <ul id="login-dp" class="dropdown-menu">
-                            <li>
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <form class="form" role="form" method="post" action="login" accept-charset="UTF-8" id="login-nav">
-                                            <div class="form-group">
-                                                <label class="sr-only" for="email">Adresse email</label>
-                                                <input type="email" class="form-control" id="email" placeholder="Adresse email" required>
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="sr-only" for="password">Mot de passe</label>
-                                                <input type="password" class="form-control" id="password" placeholder="Mot de passe" required>
-                                                <div class="help-block text-right"><a href="">Mot de passe oublié ?</a></div>
-                                            </div>
-                                            <div class="form-group">
-                                                <button type="submit" class="btn btn-primary btn-block">Connection</button>
-                                            </div>
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input type="checkbox"> Se souvenir
-                                                </label>
-                                            </div>
-                                        </form>
-                                    </div>
-                                    <div class="bottom text-center">
-                                        Chercheur sans compte ? <a href="#"><b>Inscription</b></a>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            </div><!-- /.navbar-collapse -->
-        </div><!-- /.container-fluid -->
-    </nav>
-    <div class="container" ng-controller="helloWorldController as helloCtrl">
-        <h1>@{{ helloCtrl.hello }}</h1>
+        <div class="jumbotron">
+            <h1>Publications des chercheurs de l'UTT </h1>
+            <p>Bienvenue ! Ici vous trouverez l'ensemble des publications de recherche des enseignants-chercheurs de l'UTT.</p>
+            <p><a class="btn btn-primary btn-lg" href="#" role="button">Accèder aux publications</a></p>
+        </div>
+
+        <div>
+            <h1>Présentation de L'ICD</h1>
+
+            <p class="lead">L'nstitut Charles Delaunay est composé de 8 équipes de recherche : </p>
+
+            <table class="table table-striped table-bordered">
+                <tr>
+                    <td>CREIDD</td>
+                    <td>Centre de Recherches et d'Etudes Interdisciplinaires sur le Développement Durable</td>
+                </tr>
+                <tr>
+                    <td>ERA</td>
+                    <td>Environnement de Réseaux Autonomes</td>
+                </tr>
+                <tr>
+                    <td>GAMMA3</td>
+                    <td>Génération Automatique de Maillage et Méthodes Avancées</td>
+                </tr>
+                <tr>
+                    <td>LASMIS</td>
+                    <td>Systèmes Mécaniques et Ingénierie Simultanée</td>
+                </tr>
+                <tr>
+                    <td>LM2S</td>
+                    <td>Modélisation et Sûreté des Systèmes</td>
+                </tr>
+                <tr>
+                    <td>LNIO</td>
+                    <td>Nanotechnologie et Instrumentation Optique</td>
+                </tr>
+                <tr>
+                    <td>LOSI</td>
+                    <td>Optimisation des Systèmes Industriels</td>
+                </tr>
+                <tr>
+                    <td>Tech-CICO</td>
+                    <td>Technologies pour la Coopération, l'Interaction et les Connaissances dans les collectifs</td>
+                </tr>
+            </table>
+        </div>
+
     </div>
 @stop
