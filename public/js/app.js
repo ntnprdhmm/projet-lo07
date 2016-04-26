@@ -6,7 +6,7 @@ app.config(['$routeProvider',
         when('/', {
             templateUrl: 'js/templates/pages/index/index.html'
         }).
-        when('/publications', {
+        when('/publications/:page', {
             templateUrl: 'js/templates/pages/publications/index.html'
         }).
         otherwise({

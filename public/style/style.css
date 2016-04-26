@@ -24,10 +24,6 @@ p {
     font-size: 20px;
 }
 
-p.small {
-    font-size: 16px;
-}
-
 a,
 a:hover,
 a:focus,
@@ -135,3 +131,24 @@ header .intro-text .head-desc {
 section {
     padding: 100px 0;
 }
+
+.first-container {
+    margin-top: 100px;
+}
+
+.panel-body {
+    padding-top: 0px;
+}
+
+.publication-publiee {
+    color: #5cb85c;
+}
+
+.publication-en-revision {
+    color: #f0ad4e;
+}
+
+.publication-soumise {
+    color: #337ab7;
+}
+

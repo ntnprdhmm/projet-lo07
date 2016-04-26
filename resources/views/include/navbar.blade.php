@@ -30,7 +30,7 @@
                                             <div class="help-block text-right"><a href="">Mot de passe oublié ?</a></div>
                                         </div>
                                         <div class="form-group">
-                                            <button type="submit" class="btn btn-primary btn-block">Connection</button>
+                                            <button type="submit" class="btn btn-primary btn-block">Connexion</button>
                                         </div>
                                         <div class="checkbox">
                                             <label>
