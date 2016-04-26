@@ -1,4 +1,4 @@
-<nav class="navbar navbar-default navbar-inverse" role="navigation">
+<nav class="navbar navbar-fixed-top navbar-inverse" role="navigation">
     <div class="container">
 
         <div class="navbar-header">

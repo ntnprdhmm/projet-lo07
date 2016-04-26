@@ -35,10 +35,15 @@
     border-radius: 0px;
 }
 
-.navbar-header {
+.navbar {
+    margin-bottom: 0px;
+    background: #2c3e50;
+}
+
+.navbar-inverse .navbar-brand {
     color: white;
 }
 
-.navbar {
-    margin-bottom: 0px;
+.navbar-inverse .navbar-nav>li>a {
+    color: white;
 }

@@ -1,0 +1,49 @@
+/*
+    couleurs :
+    vert : #18bc9c
+    gris foncé : #2c3e50
+    gris tres foncé : #233140
+*/
+
+/* full page div */
+
+html,body {
+    height:100%;
+}
+
+.jumbotron, .main-container  {
+    height:100%;
+}
+
+.jumbotron {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    margin-bottom: 0px;
+    margin-top: 0px;
+    background: #fff;
+}
+
+/* couleur des jumbo */
+
+.green-background {
+    background: #18bc9c;
+}
+
+.green-background .container > h1, p {
+    color: #fff;
+}
+
+/* bouton jaune */
+
+.btn-warning {
+    background: #FFFF00;
+    color: #233140;
+    border-color: #FFFF00;
+}
+
+.btn-warning:hover {
+    background: #FFFF00;
+    color: #233140;
+    border-color: #233140;
+}
