@@ -33,14 +33,14 @@
                                             <button type="submit" class="btn btn-primary btn-block">Connexion</button>
                                         </div>
                                         <div class="checkbox">
-                                            <label>
+                                            <label >
                                                 <input type="checkbox"> Se souvenir
                                             </label>
                                         </div>
                                     </form>
                                 </div>
                                 <div class="bottom text-center">
-                                    Chercheur sans compte ? <a href="#"><b>Inscription</b></a>
+                                    Chercheur sans compte ? <a href="#/inscription"><b>Inscription</b></a>
                                 </div>
                             </div>
                         </li>
@@ -51,3 +51,5 @@
 
     </div>
 </nav>
+
+

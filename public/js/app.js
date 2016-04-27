@@ -9,6 +9,9 @@ app.config(['$routeProvider',
         when('/publications/:page', {
             templateUrl: 'js/templates/pages/publications/index.html'
         }).
+        when('/inscription', {
+            templateUrl: 'js/templates/pages/inscription/index.html'
+        }).
         otherwise({
             redirectTo: '/'
         });
