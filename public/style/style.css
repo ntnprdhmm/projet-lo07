@@ -2,8 +2,6 @@ html, body {
     height: 100%;
 }
 
-/* bouton jaune */
-
 .btn-warning {
     background: #FFFF00;
     color: #233140;
@@ -13,6 +11,18 @@ html, body {
 .btn-warning:hover {
     background: #FFFF00;
     color: #233140;
+    border-color: #233140;
+}
+
+#register_submit {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background: #18bc9c;
+    border-color: #18bc9c;
+}
+
+#register_submit:hover {
+    background: #18bc9c;
     border-color: #233140;
 }
 
@@ -151,4 +161,3 @@ section {
 .publication-soumise {
     color: #337ab7;
 }
-
