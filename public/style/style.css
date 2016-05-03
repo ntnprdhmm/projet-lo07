@@ -183,3 +183,9 @@ section {
 .panel-publication {
     margin-bottom: 0px;
 }
+
+#form-publication-container {
+    background: #5cb85c;
+    padding: 10px;
+    border-radius: 1px;
+}

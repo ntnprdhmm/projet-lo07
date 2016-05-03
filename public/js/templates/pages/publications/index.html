@@ -2,14 +2,37 @@
 
     <h1>Liste des publications</h1>
 
-    <div>
-        <button class="btn btn-success pull-right">Créer publication</button>
-        <div id="form-publication-container">
-            <form action="">
-                <div class="row">
-                    <div class="form-group col-xs-12">
-                        <label for="title">Titre de la Publication</label>
-                        <input class="form-control" type="text" name="title" placeholder="Titre" id="title">
+    <div ng-controller="publicationsController">
+        <button ng-click="toggleForm()" class="btn btn-success" id="btn-creation-publication">Créer publication</button>
+        <div id="form-publication-container" ng-show="displayForm">
+            <form id="form-publication" class="form-horizontal">
+                <div class="form-group">
+                    <label for="title" class="col-sm-2">Titre de la publication *</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" name="title" id="title" placeholder="Titre" required/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="reference" class="col-sm-2">Référence à un article</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" name="reference" id="reference" placeholder="Référence"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="conference" class="col-sm-2">Lieu de la conférence</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" name="conference" id="conference" placeholder="Conférence"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2" for="publication-file">Fichier *</label>
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <input type="file" id="publication-file">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button type="submit" class="btn btn-default">Création</button>
                     </div>
                 </div>
             </form>

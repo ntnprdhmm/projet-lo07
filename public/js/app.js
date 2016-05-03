@@ -16,3 +16,10 @@ app.config(['$routeProvider',
             redirectTo: '/'
         });
     }]);
+
+app.controller('publicationsController', function($scope) {
+    $scope.displayForm = false;
+    $scope.toggleForm = function() {
+        $scope.displayForm = !$scope.displayForm;
+    };
+});
