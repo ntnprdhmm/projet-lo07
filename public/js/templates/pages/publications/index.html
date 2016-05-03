@@ -3,7 +3,21 @@
     <h1>Liste des publications</h1>
 
     <div>
-        <div class="panel">
+        <button class="btn btn-success pull-right">Créer publication</button>
+        <div id="form-publication-container">
+            <form action="">
+                <div class="row">
+                    <div class="form-group col-xs-12">
+                        <label for="title">Titre de la Publication</label>
+                        <input class="form-control" type="text" name="title" placeholder="Titre" id="title">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="publication-box-publiee">
+        <div class="panel panel-publication">
             <div class="panel-heading">
                 <div class="text-center">
                     <div class="row">
@@ -33,7 +47,7 @@
         </div>
     </div>
 
-    <div>
+    <div class="publication-box-soumise">
         <div class="panel">
             <div class="panel-heading">
                 <div class="text-center">
