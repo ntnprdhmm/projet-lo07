@@ -3,7 +3,10 @@
     <h1>Liste des publications</h1>
 
     <div ng-controller="publicationsController">
-        <button ng-click="toggleForm()" class="btn btn-success" id="btn-creation-publication">Créer publication</button>
+        <div>
+            <button ng-click="toggleForm()" class="btn btn-success" id="btn-creation-publication">Créer publication</button>
+        </div>
+
         <div id="form-publication-container" ng-show="displayForm">
             <form id="form-publication" class="form-horizontal">
                 <div class="form-group">
@@ -45,7 +48,9 @@
                 <div class="text-center">
                     <div class="row">
                         <div class="col-sm-9">
-                            <h3 class="pull-left">Titre de la publication <small class="publication-publiee">publiée</small></h3>
+                            <a href="#" class="publication-title">
+                                <h3 class="pull-left">Titre de la publication <small class="publication-publiee">publiée</small></h3>
+                            </a>
                         </div>
                         <div class="col-sm-3">
                             <h4 class="pull-right">
@@ -59,7 +64,6 @@
             <div class="panel-body">
                 Référence à un article<br>
                 Lieu de la conférence<br>
-                <a href="#">plus de details</a>
             </div>
 
             <div class="panel-footer">
@@ -76,7 +80,9 @@
                 <div class="text-center">
                     <div class="row">
                         <div class="col-sm-9">
-                            <h3 class="pull-left">Titre de la publication 2 <small class="publication-soumise">soumise</small></h3>
+                            <a href="#" class="publication-title">
+                                <h3 class="pull-left">Titre de la publication 2 <small class="publication-soumise">soumise</small></h3>
+                            </a>
                         </div>
                         <div class="col-sm-3">
                             <h4 class="pull-right">
@@ -90,7 +96,6 @@
             <div class="panel-body">
                 Référence à un article<br>
                 Lieu de la conférence<br>
-                <a href="#">plus de details</a>
             </div>
 
             <div class="panel-footer">
