@@ -184,3 +184,10 @@ section {
 .publication-title {
     color: #233140;
 }
+
+#form-filtre-container {
+    background: #337ab7;
+    padding: 10px;
+    border-radius: 1px;
+    text-align: center;
+}

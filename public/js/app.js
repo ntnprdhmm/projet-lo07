@@ -34,10 +34,38 @@ app.controller('publicationController',function($scope, $routeParams) {
  * Concerne l'ensemble des publications
  */
 app.controller('publicationsController', function($scope, $uibModal) {
+
+    $scope.displayFilters = false;
     $scope.displayForm = false;
+
+    $scope.authorInput = {
+        pattern: /^[a-z ]{3,50}$/i
+    };
+
     $scope.toggleForm = function() {
+        if($scope.displayFilters) {
+            $scope.toggleFilters();
+        }
         $scope.displayForm = !$scope.displayForm;
     };
+
+    $scope.toggleFilters = function() {
+        if($scope.displayForm) {
+            $scope.toggleForm();
+        }
+        $scope.displayFilters = !$scope.displayFilters;
+    };
+
+    $scope.laboratoires = [
+        'CREIDD',
+        'ERA',
+        'GAMMA3',
+        'LASMIS',
+        'LM2S',
+        'LNIO',
+        'LOSI',
+        'Tech-CICO'
+    ];
 
     // MODAL
     $scope.collaborateurs = [
@@ -58,7 +86,7 @@ app.controller('publicationsController', function($scope, $uibModal) {
     $scope.open = function (size, author) {
         var modalInstance = $uibModal.open({
             animation: true,
-            templateUrl: 'myModalContent.html',
+            templateUrl: 'authorModal',
             controller: 'ModalInstanceCtrl',
             size: size,
             resolve: {
@@ -71,6 +99,8 @@ app.controller('publicationsController', function($scope, $uibModal) {
             }
         });
     };
+
+
 });
 
 /**
