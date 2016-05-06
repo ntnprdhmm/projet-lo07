@@ -67,9 +67,9 @@
             </div>
 
             <div class="panel-footer">
-                <a class="label label-default">Matthieu tixier</a>
-                <a class="label label-default">Aurélien Benel</a>
-                <a class="label label-default">Monsieur patate</a>
+                <a class="label label-default" ng-click="open('lg', 'Matthieu Tixier')">Matthieu tixier</a>
+                <a class="label label-default" ng-click="open('lg', 'Aurélien Bénel')">Aurélien Benel</a>
+                <a class="label label-default" ng-click="open('lg', 'Monsieur Patate')">Monsieur patate</a>
             </div>
         </div>
     </div>
@@ -126,14 +126,18 @@
 
     <script type="text/ng-template" id="myModalContent.html">
         <div class="modal-header">
-            <h3 class="modal-title">{{author}}</h3>
+            <h3 class="modal-title">{{ author }}</h3>
         </div>
         <div class="modal-body">
-
+            <ul ng-repeat="collaborateur in collaborateurs">
+                <li>
+                    <span>{{ collaborateur.name }}</span> : {{ collaborateur.collaborations }}
+                </li>
+            </ul>
         </div>
         <div class="modal-footer">
-            <button class="btn btn-primary" type="button" ng-click="ok()">OK</button>
-            <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+            <button class="btn btn-success" type="button" ng-click="search()">Publications de {{ author }}</button>
+            <button class="btn btn-primary" type="button" ng-click="close()">Fermer</button>
         </div>
     </script>
 

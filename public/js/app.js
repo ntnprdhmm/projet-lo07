@@ -33,45 +33,60 @@ app.controller('publicationController',function($scope, $routeParams) {
 /**
  * Concerne l'ensemble des publications
  */
-app.controller('publicationsController', function($scope, $uibModal, $log) {
+app.controller('publicationsController', function($scope, $uibModal) {
     $scope.displayForm = false;
     $scope.toggleForm = function() {
         $scope.displayForm = !$scope.displayForm;
     };
 
     // MODAL
+    $scope.collaborateurs = [
+        {
+            name: "jean paul",
+            collaborations: 16
+        },
+        {
+            name: "michel",
+            collaborations: 9
+        },
+        {
+            name: "bernard",
+            collaborations: 2
+        }
+    ];
 
     $scope.open = function (size, author) {
-
         var modalInstance = $uibModal.open({
             animation: true,
             templateUrl: 'myModalContent.html',
-            controller: 'publicationsController',
+            controller: 'ModalInstanceCtrl',
             size: size,
             resolve: {
                 author: function() {
                     return author;
+                },
+                collaborateurs: function() {
+                    return $scope.collaborateurs;
                 }
             }
         });
     };
 });
 
-// Please note that $uibModalInstance represents a modal window (instance) dependency.
-// It is not the same as the $uibModal service used above.
+/**
+ * Controller d'une instance de uiModal
+ */
+app.controller('ModalInstanceCtrl', function ($scope, $uibModalInstance, author, collaborateurs) {
 
-angular.module('ui.bootstrap.demo', []).controller('ModalInstanceCtrl', function ($scope, $uibModalInstance, items) {
+    $scope.author = author;
+    $scope.collaborateurs = collaborateurs;
 
-    $scope.items = items;
-    $scope.selected = {
-        item: $scope.items[0]
+    $scope.search = function () {
+        // select publications where author = author
+        $uibModalInstance.close();
     };
 
-    $scope.ok = function () {
-        $uibModalInstance.close($scope.selected.item);
-    };
-
-    $scope.cancel = function () {
-        $uibModalInstance.dismiss('cancel');
+    $scope.close = function () {
+        $uibModalInstance.close();
     };
 });
