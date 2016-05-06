@@ -99,32 +99,12 @@
             </div>
 
             <div class="panel-footer">
-                <a class="label label-default">Ines Di Loreto</a>
-                <a class="label label-default">JM Nigro</a>
-                <a class="label label-default">Monsieur patate</a>
+                <a class="label label-default" ng-click="open('lg', 'Ines Di Loreto')">Ines Di Loreto</a>
+                <a class="label label-default" ng-click="open('lg', 'JM Nigro')">JM Nigro</a>
+                <a class="label label-default" ng-click="open('lg', 'Monsieur patate')">Monsieur patate</a>
             </div>
         </div>
     </div>
-
-        <script type="text/ng-template" id="myModalContent.html">
-            <div class="modal-header">
-                <h3 class="modal-title">I'm a modal!</h3>
-            </div>
-            <div class="modal-body">
-                <ul>
-                    <li ng-repeat="item in items">
-                        <a href="#" ng-click="$event.preventDefault(); selected.item = item">{{ item }}</a>
-                    </li>
-                </ul>
-                Selected: <b>{{ selected.item }}</b>
-            </div>
-            <div class="modal-footer">
-                <button class="btn btn-primary" type="button" ng-click="ok()">OK</button>
-                <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
-            </div>
-        </script>
-
-        <button type="button" class="btn btn-default" ng-click="open('lg')">Large modal</button>
 
     <nav class="text-center">
         <ul class="pagination">
@@ -144,4 +124,18 @@
         </ul>
     </nav>
 
+    <script type="text/ng-template" id="myModalContent.html">
+        <div class="modal-header">
+            <h3 class="modal-title">{{author}}</h3>
+        </div>
+        <div class="modal-body">
+
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" type="button" ng-click="ok()">OK</button>
+            <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+        </div>
+    </script>
+
 </div>
+

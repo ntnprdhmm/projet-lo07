@@ -19,7 +19,16 @@ app.config(['$routeProvider',
         otherwise({
             redirectTo: '/'
         });
-    }]);
+    }
+]);
+
+/**
+ * Concerne une seule publication
+ */
+app.controller('publicationController',function($scope, $routeParams) {
+    $scope.page = $routeParams.page;
+    $scope.id = $routeParams.id;
+});
 
 /**
  * Concerne l'ensemble des publications
@@ -30,33 +39,21 @@ app.controller('publicationsController', function($scope, $uibModal, $log) {
         $scope.displayForm = !$scope.displayForm;
     };
 
-    $scope.items = ['item1', 'item2', 'item3'];
+    // MODAL
 
-    $scope.animationsEnabled = true;
-
-    $scope.open = function (size) {
+    $scope.open = function (size, author) {
 
         var modalInstance = $uibModal.open({
-            animation: $scope.animationsEnabled,
+            animation: true,
             templateUrl: 'myModalContent.html',
             controller: 'publicationsController',
             size: size,
             resolve: {
-                items: function () {
-                    return $scope.items;
+                author: function() {
+                    return author;
                 }
             }
         });
-
-        modalInstance.result.then(function (selectedItem) {
-            $scope.selected = selectedItem;
-        }, function () {
-            $log.info('Modal dismissed at: ' + new Date());
-        });
-    };
-
-    $scope.toggleAnimation = function () {
-        $scope.animationsEnabled = !$scope.animationsEnabled;
     };
 });
 
@@ -77,12 +74,4 @@ angular.module('ui.bootstrap.demo', []).controller('ModalInstanceCtrl', function
     $scope.cancel = function () {
         $uibModalInstance.dismiss('cancel');
     };
-});
-
-/**
- * Concerne une seule publication
- */
-app.controller('publicationController',function($scope, $routeParams) {
-    $scope.page = $routeParams.page;
-    $scope.id = $routeParams.id;
 });
