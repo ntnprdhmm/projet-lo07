@@ -11,7 +11,9 @@ Projet web LO07 @UTTroyes
 * generer une cle de projet : "php artisan key:generate"
 * npm install bootstrap
 * npm install angular 
-* npm install angular-route  
+* npm install angular-route
+* npm install angular-animate
+* npm install angular-touch
 
 ## mise à jour des dépendances 
 

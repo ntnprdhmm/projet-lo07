@@ -15,6 +15,10 @@
     <script type="text/javascript" src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="../node_modules/angular/angular.min.js"></script>
     <script type="text/javascript" src="../node_modules/angular-route/angular-route.js"></script>
+    <script type="text/javascript" src="../node_modules/angular-bootstrap-npm/dist/angular-bootstrap.js"></script>
+    <script type="text/javascript" src="../node_modules/angular-bootstrap-npm/dist/angular-bootstrap-tpls.js"></script>
+    <script type="text/javascript" src="../node_modules/angular-animate/angular-animate.js"></script>
+    <script type="text/javascript" src="../node_modules/angular-touch/angular-touch.js"></script>
     <script type="text/javascript" src="js/app.js"></script>
     <script type="text/javascript" src="js/form.js"></script>
     @yield('script')
