@@ -26,6 +26,6 @@
     <!-- ANGULAR SCRIPTS-->
     <script type="text/javascript" src="js/app.js"></script>
     <!-- OTHERS SCRIPTS -->
-    <script type="text/javascript" src="js/form.js"></script>
+    <script type="text/javascript" src="js/scripts/form.js"></script>
     @yield('script')
 </html>

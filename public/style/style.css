@@ -2,27 +2,15 @@ html, body {
     height: 100%;
 }
 
-.btn-warning {
-    background: #FFFF00;
-    color: #233140;
-    border-color: #FFFF00;
-}
-
-.btn-warning:hover {
-    background: #FFFF00;
-    color: #233140;
-    border-color: #233140;
-}
-
 #register_submit {
     margin-top: 20px;
     margin-bottom: 20px;
-    background: #18bc9c;
-    border-color: #18bc9c;
+    background: #337ab7;
+    border-color: #337ab7;
 }
 
 #register_submit:hover {
-    background: #18bc9c;
+    background: #337ab7;
     border-color: #233140;
 }
 
@@ -72,7 +60,7 @@ hr.star-light {
 
 hr.star-light:after {
     color: #fff;
-    background-color: #18bc9c;
+    background-color: #337ab7;
 }
 
 hr.star-primary {
@@ -91,7 +79,7 @@ hr.star-primary:after {
 header {
     text-align: center;
     color: #fff;
-    background: #18bc9c;
+    background: #337ab7;
     min-height: 100%;
 }
 
@@ -176,7 +164,7 @@ section {
 }
 
 #form-publication-container {
-    background: #5cb85c;
+    border: 5px solid #5cb85c;
     padding: 10px;
     border-radius: 1px;
 }
@@ -186,7 +174,7 @@ section {
 }
 
 #form-filtre-container {
-    background: #337ab7;
+    border: 5px solid #337ab7;
     padding: 10px;
     border-radius: 1px;
     text-align: center;

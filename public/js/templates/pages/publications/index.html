@@ -12,7 +12,7 @@
             <form class="form-inline">
                 <div class="form-group">
                     <label for="laboratoire">Laboratoire</label>
-                    <select class="btn btn-default" id="laboratoire">
+                    <select class="btn btn-primary" id="laboratoire">
                         <option value="{{ labo }}" ng-repeat="labo in laboratoires">{{ labo }}</option>
                     </select>
                 </div>
@@ -21,7 +21,7 @@
                     <input type="number" class="form-control" id="annee" placeholder="yyyy"
                            min="1970" max="2016">
                 </div>
-                <button type="submit" class="btn btn-default">Rechercher</button>
+                <button type="submit" class="btn btn-primary">Rechercher</button>
             </form>
             <hr>
             <form class="form-inline">
@@ -29,12 +29,12 @@
                     <label for="auteur">Auteur</label>
                     <input type="text" class="form-control" id="auteur" ng-pattern="authorInput.pattern">
                 </div>
-                <button type="submit" class="btn btn-default">Rechercher</button>
+                <button type="submit" class="btn btn-primary">Rechercher</button>
             </form>
             <hr>
             <form class="form-inline">
-                <button type="submit" class="btn btn-default">Ordre chronologique</button>
-                <button type="submit" class="btn btn-default">Ordre antéchronologique</button>
+                <button type="submit" class="btn btn-primary">Ordre chronologique</button>
+                <button type="submit" class="btn btn-primary">Ordre antéchronologique</button>
             </form>
         </div>
 
@@ -60,7 +60,7 @@
                 </div>
                 <div class="form-group">
                     <label for="category" class="col-sm-2">Catégorie de l'article *</label>
-                    <select class="btn btn-default" id="category">
+                    <select class="btn btn-success" id="category">
                         <option value="{{ categorie }}" ng-repeat="categorie in categories">{{ categorie }}</option>
                     </select>
                 </div>
@@ -76,7 +76,7 @@
                 </div>
                 <div class="form-group">
                     <div class="col-sm-offset-2 col-sm-10">
-                        <button type="submit" class="btn btn-default">Création</button>
+                        <button type="submit" class="btn btn-success">Création</button>
                     </div>
                 </div>
             </form>
