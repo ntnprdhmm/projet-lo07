@@ -1,8 +1,7 @@
 var app = angular.module("myApp", ["ngRoute", "ui.bootstrap"]);
 
-app.config(['$routeProvider',
-    function($routeProvider) {
-        $routeProvider.
+app.config(['$routeProvider', function($routeProvider) {
+    $routeProvider.
         when('/', {
             templateUrl: 'js/templates/pages/index/index.html'
         }).
@@ -11,7 +10,7 @@ app.config(['$routeProvider',
         }).
         when('/publications/:page/publication/:id', {
             templateUrl: 'js/templates/pages/publications/publication.html',
-            controller: 'publicationController'
+            controller: 'PublicationCtrl'
         }).
         when('/inscription', {
             templateUrl: 'js/templates/pages/inscription/index.html'
@@ -21,115 +20,3 @@ app.config(['$routeProvider',
         });
     }
 ]);
-
-/**
- * Concerne une seule publication
- */
-app.controller('publicationController',function($scope, $routeParams) {
-    $scope.page = $routeParams.page;
-    $scope.id = $routeParams.id;
-});
-
-/**
- * Concerne l'ensemble des publications
- */
-app.controller('publicationsCtrl', function($scope, $uibModal) {
-
-    $scope.displayFilters = false;
-    $scope.displayForm = false;
-
-    $scope.authorInput = {
-        pattern: /^[a-z ]{3,50}$/i
-    };
-
-    $scope.toggleForm = function() {
-        if($scope.displayFilters) {
-            $scope.toggleFilters();
-        }
-        $scope.displayForm = !$scope.displayForm;
-    };
-
-    $scope.toggleFilters = function() {
-        if($scope.displayForm) {
-            $scope.toggleForm();
-        }
-        $scope.displayFilters = !$scope.displayFilters;
-    };
-
-    $scope.laboratoires = [
-        'CREIDD',
-        'ERA',
-        'GAMMA3',
-        'LASMIS',
-        'LM2S',
-        'LNIO',
-        'LOSI',
-        'Tech-CICO'
-    ];
-
-    // MODAL
-    $scope.collaborateurs = [
-        {
-            name: "jean paul",
-            collaborations: 16
-        },
-        {
-            name: "michel",
-            collaborations: 9
-        },
-        {
-            name: "bernard",
-            collaborations: 2
-        }
-    ];
-
-    $scope.open = function (size, author) {
-        var modalInstance = $uibModal.open({
-            animation: true,
-            templateUrl: 'authorModal',
-            controller: 'ModalInstanceCtrl',
-            size: size,
-            resolve: {
-                author: function() {
-                    return author;
-                },
-                collaborateurs: function() {
-                    return $scope.collaborateurs;
-                }
-            }
-        });
-    };
-
-
-});
-
-app.controller('newPublicationCtrl', function($scope) {
-    $scope.categories = [
-        "RI : Article dans des Revues Internationales",
-        "CI : Article dans des Conférences Internationales",
-        "RF : Article dans des Revues Françaises",
-        "CF : Article dans des Conférences Françaises",
-        "OS : Ouvrage Scientifique (Chapitre de Livre, ...)",
-        "TD : Thèse de Doctorat",
-        "BV : Brevet",
-        "AP : Autre Production"
-    ];
-});
-
-/**
- * Controller d'une instance de uiModal
- */
-app.controller('ModalInstanceCtrl', function ($scope, $uibModalInstance, author, collaborateurs) {
-
-    $scope.author = author;
-    $scope.collaborateurs = collaborateurs;
-
-    $scope.search = function () {
-        // select publications where author = author
-        $uibModalInstance.close();
-    };
-
-    $scope.close = function () {
-        $uibModalInstance.close();
-    };
-});

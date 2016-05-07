@@ -25,6 +25,11 @@
     <script type="text/javascript" src="../node_modules/angular-touch/angular-touch.js"></script>
     <!-- ANGULAR SCRIPTS-->
     <script type="text/javascript" src="js/app.js"></script>
+        <!-- controllers -->
+        <script type="text/javascript" src="js/controllers/PublicationsCtrl.js"></script>
+        <script type="text/javascript" src="js/controllers/NewPublicationCtrl.js"></script>
+        <script type="text/javascript" src="js/controllers/PublicationCtrl.js"></script>
+        <script type="text/javascript" src="js/controllers/ModalInstanceCtrl.js"></script>
     <!-- OTHERS SCRIPTS -->
     <script type="text/javascript" src="js/scripts/form.js"></script>
     @yield('script')
