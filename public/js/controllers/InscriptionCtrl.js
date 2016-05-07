@@ -1,11 +1,26 @@
-app.controller('InscriptionCtrl', function($scope) {
+app.controller('InscriptionCtrl', function($scope, $http) {
 
     $scope.registerFormSubmit = function(isValid) {
 
-        // check to make sure the form is completely valid
-        if (isValid) {
-            alert('our form is amazing');
-        }
+        $scope.formData = {
+            name: $scope.name,
+            firstname: $scope.firstname,
+            login: $scope.login,
+            password: $scope.password,
+            organisation: $scope.organisation,
+            equipe: $scope.equipe
+        };
+
+        /*$http({
+            method  : 'POST',
+            url     : '',
+            data    : $.param($scope.formData),
+            headers : { 'Content-Type': 'application/x-www-form-urlencoded' }
+        })
+            .success(function(data) {
+
+            });*/
+
 
     };
 
