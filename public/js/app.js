@@ -15,6 +15,9 @@ app.config(['$routeProvider', function($routeProvider) {
         when('/inscription', {
             templateUrl: 'js/templates/pages/inscription/index.html'
         }).
+        when('/admin', {
+            templateUrl: 'js/templates/pages/admin/index.html'
+        }).
         otherwise({
             redirectTo: '/'
         });

@@ -30,6 +30,7 @@
         <script type="text/javascript" src="js/controllers/NewPublicationCtrl.js"></script>
         <script type="text/javascript" src="js/controllers/PublicationCtrl.js"></script>
         <script type="text/javascript" src="js/controllers/ModalInstanceCtrl.js"></script>
+        <script type="text/javascript" src="js/controllers/AdminCtrl.js"></script>
     <!-- OTHERS SCRIPTS -->
     <script type="text/javascript" src="js/scripts/form.js"></script>
     @yield('script')

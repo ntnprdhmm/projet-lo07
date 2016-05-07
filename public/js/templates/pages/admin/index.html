@@ -1,0 +1,29 @@
+<div class="container first-container" ng-controller="AdminCtrl">
+
+    <h1>administration</h1>
+
+    <uib-tabset active="activeJustified" justified="true">
+
+        <!-- USERS ACCOUNTS -->
+        <uib-tab index="0" heading="Comptes">
+
+            <br>
+            <div class="list-group users-group" ng-repeat="user in users">
+                <span class="list-group-item-heading">{{ user.name }} </span>
+                <div class="list-group-item-text">
+                    {{ user.orga }} - {{ user.equipe }} <small>( {{ user.date }} )</small> <a href="#/admin" class="remove-user">supprimer</a>
+                </div>
+            </div>
+
+        </uib-tab>
+
+        <!-- PROBLEMS -->
+        <uib-tab index="1" heading="Anomalies">
+
+            Anomalies
+
+        </uib-tab>
+
+    </uib-tabset>
+
+</div>
