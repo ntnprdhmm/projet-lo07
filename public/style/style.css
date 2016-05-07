@@ -191,3 +191,7 @@ section {
     border-radius: 1px;
     text-align: center;
 }
+
+#category {
+    margin-left: 14px;
+}
