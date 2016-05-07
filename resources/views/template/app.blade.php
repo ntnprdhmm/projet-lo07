@@ -31,6 +31,9 @@
         <script type="text/javascript" src="js/controllers/PublicationCtrl.js"></script>
         <script type="text/javascript" src="js/controllers/ModalInstanceCtrl.js"></script>
         <script type="text/javascript" src="js/controllers/AdminCtrl.js"></script>
+        <script type="text/javascript" src="js/controllers/InscriptionCtrl.js"></script>
+        <!-- DIRECTIVES -->
+        <script type="text/javascript" src="js/directives/passwordVerify.js"></script>
     <!-- OTHERS SCRIPTS -->
     <script type="text/javascript" src="js/scripts/form.js"></script>
     @yield('script')

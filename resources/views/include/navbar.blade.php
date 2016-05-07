@@ -22,8 +22,8 @@
                                 <div class="col-md-12">
                                     <form class="form" role="form" method="post" action="login" accept-charset="UTF-8" id="login-nav">
                                         <div class="form-group">
-                                            <label class="sr-only" for="email">Adresse email</label>
-                                            <input type="email" class="form-control" id="email" placeholder="Adresse email" required>
+                                            <label class="sr-only" for="login">Login</label>
+                                            <input type="text" class="form-control" id="login" placeholder="Login" required>
                                         </div>
                                         <div class="form-group">
                                             <label class="sr-only" for="password">Mot de passe</label>

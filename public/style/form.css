@@ -58,7 +58,7 @@
 }
 
 .floating-label-form-group-with-focus label {
-    color: #337ab7;
+    color: #ccc;
 }
 
 .form-title {
@@ -67,4 +67,28 @@
     text-transform: uppercase;
     font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
     font-weight: 700;
+}
+
+.has-error {
+    border-bottom: 1px solid #d9534f;
+}
+
+.has-error input {
+    color: #d9534f;
+}
+
+.has-error label {
+    color: #d9534f;
+}
+
+.is-valid {
+    border-bottom: 1px solid #5cb85c;
+}
+
+.is-valid input {
+    color: #5cb85c;
+}
+
+.is-valid label {
+    color: #333;
 }

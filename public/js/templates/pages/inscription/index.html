@@ -1,64 +1,77 @@
-<div class="container first-container">
+<div class="container first-container" ng-controller="InscriptionCtrl">
     <div class="container">
+
         <div class="row">
+
             <div class="col-lg-12 text-center">
                 <h1>Formulaire d'inscription</h1>
                 <hr class="star-primary">
             </div>
+
         </div>
+
         <div class="row">
+
             <div class="col-lg-8 col-lg-offset-2">
-                <form name="register-form">
+
+                <form name="registerForm" ng-submit="registerFormSubmit(registerForm.$valid)" novalidate autocomplete="off">
+
                     <div class="form-title">Informations perso</div>
                     <div class="row">
-                        <div class="form-group col-xs-12 floating-label-form-group">
-                            <label for="name">Nom</label>
-                            <input class="form-control" type="text" name="name" placeholder="Nom" id="name">
+                        <div class="form-group col-xs-12 floating-label-form-group" ng-class="{ 'has-error' : registerForm.name.$invalid && !registerForm.name.$pristine, 'is-valid' : !registerForm.name.$invalid }">
+                            <label>Nom</label>
+                            <input class="form-control" type="text" name="name" placeholder="Nom" ng-model="name" ng-minlength="3" ng-maxlength="20" required>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="form-group col-xs-12 floating-label-form-group">
-                            <label for="firstname">Prenom</label>
-                            <input class="form-control" type="text" name="firstname" placeholder="Prenom" id="firstname">
+                        <div class="form-group col-xs-12 floating-label-form-group" ng-class="{ 'has-error' : registerForm.firstname.$invalid && !registerForm.firstname.$pristine, 'is-valid' : !registerForm.firstname.$invalid }">
+                            <label>Prenom</label>
+                            <input class="form-control" type="text" name="firstname" placeholder="Prenom" ng-model="firstname" ng-minlength="3" ng-maxlength="20" required>
                         </div>
                     </div>
+
                     <div class="form-title">Authentification</div>
                     <div class="row">
-                        <div class="form-group col-xs-12 floating-label-form-group">
-                            <label for="login">Login</label>
-                            <input class="form-control" type="text" name="login" placeholder="Login" id="login">
+                        <div class="form-group col-xs-12 floating-label-form-group" ng-class="{ 'has-error' : registerForm.login.$invalid && !registerForm.login.$pristine, 'is-valid' : !registerForm.login.$invalid }">
+                            <label>Login</label>
+                            <input class="form-control" type="text" name="login" placeholder="Login" ng-model="login" ng-minlength="3" ng-maxlength="20" required>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="form-group col-xs-12 floating-label-form-group">
-                            <label for="login">Mot de passe</label>
-                            <input class="form-control" type="password" name="password" placeholder="Mot de passe" id="password">
+                        <div class="form-group col-xs-12 floating-label-form-group" ng-class="{ 'has-error' : registerForm.password.$invalid && !registerForm.password.$pristine, 'is-valid' : !registerForm.password.$invalid }">
+                            <label>Mot de passe</label>
+                            <input class="form-control" type="password" name="password" placeholder="Mot de passe" ng-model="password" id="password" ng-minlength="6" required>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="form-group col-xs-12 floating-label-form-group">
-                            <label for="login">Confirmation</label>
-                            <input class="form-control" type="password" name="password_confirm" placeholder="Confirmation" id="password_confirm">
+                        <div class="form-group col-xs-12 floating-label-form-group" ng-class="{ 'has-error' : registerForm.password_verify.$invalid && !registerForm.password_verify.$pristine, 'is-valid' : !registerForm.password_verify.$invalid }">
+                            <label>Confirmation</label>
+                            <input class="form-control" type="password" name="password_verify" placeholder="Confirmation" ng-model="password_verify" ng-minlength="6" required password-verify="password">
                         </div>
                     </div>
+
                     <div class="form-title">Vous et la recherche</div>
                     <div class="row">
-                        <div class="form-group col-xs-12 floating-label-form-group">
-                            <label for="login">Organisation</label>
-                            <input class="form-control" type="text" name="organisation" placeholder="Organisation" id="organisation">
+                        <div class="form-group col-xs-12 floating-label-form-group" ng-class="{ 'has-error' : registerForm.organisation.$invalid && !registerForm.organisation.$pristine, 'is-valid' : !registerForm.organisation.$invalid }">
+                            <label>Organisation</label>
+                            <input class="form-control" type="text" name="organisation" placeholder="Organisation" ng-model="organisation" ng-minlength="2" ng-maxlength="80" required>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="form-group col-xs-12 floating-label-form-group">
-                            <label for="login">Equipe de recherche</label>
-                            <input class="form-control" type="text" name="team" placeholder="Equipe de recherche" id="team">
+                        <div class="form-group col-xs-12 floating-label-form-group" ng-class="{ 'has-error' : registerForm.team.$invalid && !registerForm.team.$pristine, 'is-valid' : !registerForm.team.$invalid }">
+                            <label>Equipe de recherche</label>
+                            <input class="form-control" type="text" name="team" placeholder="Equipe de recherche" ng-model="equipe" ng-minlength="2" ng-maxlength="50" required>
                         </div>
                     </div>
                     <div class="row text-center">
-                        <button type="submit" class="btn btn-success" name="register_submit" id="register_submit">Valider</button>
+                        <button type="submit" class="btn btn-success" ng-disabled="registerForm.$invalid">Valider</button>
                     </div>
+
                 </form>
+
             </div>
+
         </div>
+
     </div>
 </div>
