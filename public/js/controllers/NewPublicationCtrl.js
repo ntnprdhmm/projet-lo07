@@ -1,4 +1,5 @@
 app.controller('NewPublicationCtrl', function($scope) {
+
     $scope.categories = [
         "RI : Article dans des Revues Internationales",
         "CI : Article dans des Conférences Internationales",
@@ -9,4 +10,5 @@ app.controller('NewPublicationCtrl', function($scope) {
         "BV : Brevet",
         "AP : Autre Production"
     ];
+
 });

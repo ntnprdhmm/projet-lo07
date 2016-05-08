@@ -12,13 +12,13 @@
             <form class="form-inline">
                 <div class="form-group">
                     <label for="laboratoire">Laboratoire</label>
-                    <select class="btn btn-primary" id="laboratoire">
+                    <select name="laboratoire" class="btn btn-primary" id="laboratoire">
                         <option value="{{ labo }}" ng-repeat="labo in laboratoires">{{ labo }}</option>
                     </select>
                 </div>
                 <div class="form-group">
                     <label for="annee">Annee</label>
-                    <input type="number" class="form-control" id="annee" placeholder="yyyy"
+                    <input type="number" name="annee" class="form-control" id="annee" placeholder="yyyy"
                            min="1970" max="2016">
                 </div>
                 <button type="submit" class="btn btn-primary">Rechercher</button>
@@ -27,7 +27,7 @@
             <form class="form-inline">
                 <div class="form-group">
                     <label for="auteur">Auteur</label>
-                    <input type="text" class="form-control" id="auteur" ng-pattern="authorInput.pattern">
+                    <input type="text" class="form-control" name="auteur" id="auteur" ng-pattern="authorInput.pattern">
                 </div>
                 <button type="submit" class="btn btn-primary">Rechercher</button>
             </form>
@@ -39,46 +39,46 @@
         </div>
 
         <div id="form-publication-container" ng-show="displayForm" ng-controller="NewPublicationCtrl">
-            <form id="form-publication" class="form-horizontal">
+            <form name="newPublicationForm" class="form-horizontal" ng-submit="newPublicationFormSubmit(newPublicationForm.$valid)" novalidate autocomplete="off" enctype="multipart/form-data">
                 <div class="form-group">
                     <label for="title" class="col-sm-2">Titre de la publication *</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" name="title" id="title" placeholder="Titre" required/>
+                        <input type="text" class="form-control" name="title" id="title" placeholder="Titre" ng-model="title" ng-minlength="3" ng-maxlength="200" required/>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="reference" class="col-sm-2">Référence à un article</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" name="reference" id="reference" placeholder="Référence"/>
+                        <input type="text" class="form-control" name="reference" id="reference" placeholder="Référence" ng-model="reference" ng-minlength="3" ng-maxlength="100"/>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="conference" class="col-sm-2">Lieu de la conférence</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" name="conference" id="conference" placeholder="Conférence"/>
+                        <input type="text" class="form-control" name="conference" id="conference" placeholder="Conférence" ng-model="conference" ng-minlength="3" ng-maxlength="100"/>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="category" class="col-sm-2">Catégorie de l'article *</label>
-                    <select class="btn btn-success" id="category">
+                    <select class="btn btn-success" name="category" id="category" ng-model="category" required>
                         <option value="{{ categorie }}" ng-repeat="categorie in categories">{{ categorie }}</option>
                     </select>
                 </div>
                 <div class="form-group">
                     <label for="authors" class="col-sm-2">Auteurs *</label>
                     <div class="col-sm-offset-2 col-sm-10">
-                        <input type="text" class="form-control" name="authors" id="authors" placeholder="auteur1, auteur2, ...">
+                        <input type="text" class="form-control" name="authors" id="authors" placeholder="auteur1, auteur2, ..." ng-model="authors" ng-minlength="3" required>
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="col-sm-2" for="publication-file">Fichier *</label>
                     <div class="col-sm-offset-2 col-sm-10">
-                        <input type="file" id="publication-file">
+                        <input type="file" name="file" id="publication-file" ng-model="file" required>
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="col-sm-offset-2 col-sm-10">
-                        <button type="submit" class="btn btn-success">Création</button>
+                        <button type="submit" class="btn btn-success" ng-disabled="newPublicationForm.$invalid">Création</button>
                     </div>
                 </div>
             </form>
