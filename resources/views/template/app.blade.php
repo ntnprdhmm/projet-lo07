@@ -4,6 +4,7 @@
         <title>@yield('title')</title>
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
         <link href="style/style.css" rel="stylesheet" type="text/css">
         <link href="style/navbar.css" rel="stylesheet" type="text/css">
         <link href="style/form.css" rel="stylesheet" type="text/css">
