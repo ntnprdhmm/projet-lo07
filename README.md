@@ -9,13 +9,7 @@ Projet web LO07 @UTTroyes
 * copier le contenu de .env.example dans .env
 * adapter les informations de .env
 * generer une cle de projet : "php artisan key:generate"
-* npm install bootstrap
-* npm install angular 
-* npm install angular-route
-* npm install angular-animate
-* npm install angular-touch
 
 ## mise à jour des dépendances 
 
 * composer update
-* npm update
