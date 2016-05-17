@@ -1,0 +1,4 @@
+curl --data "name=Maxime&login=punkeel&password=mdr&email=punkeel@me.com&organisation=UTT&equipe=lol" -H "X-Requested-With: 
+XMLHttpRequest" http://projet.popcorp.eu/api/register
+
+curl --data "login=punkeel&password=mdr" http://projet.popcorp.eu/api/login
