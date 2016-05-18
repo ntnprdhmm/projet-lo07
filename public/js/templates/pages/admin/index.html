@@ -11,7 +11,7 @@
             <div class="list-group users-group" ng-repeat="user in users">
                 <span class="list-group-item-heading">{{ user.name }} </span>
                 <div class="list-group-item-text">
-                    {{ user.orga }} - {{ user.equipe }} <small>( {{ user.date }} )</small> <a href="#/admin" class="remove-user">supprimer</a>
+                    {{ user.orga }} - {{ user.equipe }} <small>( {{ user.date }} )</small> <a href="" ng-click="deleteAccount(1)" class="remove-user">supprimer</a>
                 </div>
             </div>
 

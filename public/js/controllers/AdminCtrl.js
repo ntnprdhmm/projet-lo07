@@ -27,4 +27,10 @@ app.controller('AdminCtrl', function($scope){
         },
     ];
 
+    $scope.deleteAccount = function(id){
+
+
+
+    };
+
 });
