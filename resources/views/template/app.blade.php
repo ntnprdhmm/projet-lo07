@@ -2,7 +2,9 @@
 <html>
     <head>
         <title>@yield('title')</title>
-        <link href="../node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
         <link href="style/style.css" rel="stylesheet" type="text/css">
         <link href="style/navbar.css" rel="stylesheet" type="text/css">
         <link href="style/form.css" rel="stylesheet" type="text/css">
@@ -14,15 +16,15 @@
     <!-- JQUERY -->
     <script type="text/javascript" src="js/jquery.min.js"></script>
     <!-- BOOTSTRAP -->
-    <script type="text/javascript" src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
     <!-- ANGULAR-->
-    <script type="text/javascript" src="../node_modules/angular/angular.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.5/angular.min.js"></script>
     <!-- ANGULAR PACKAGES-->
-    <script type="text/javascript" src="../node_modules/angular-route/angular-route.js"></script>
-    <script type="text/javascript" src="../node_modules/angular-bootstrap-npm/dist/angular-bootstrap.js"></script>
-    <script type="text/javascript" src="../node_modules/angular-bootstrap-npm/dist/angular-bootstrap-tpls.js"></script>
-    <script type="text/javascript" src="../node_modules/angular-animate/angular-animate.js"></script>
-    <script type="text/javascript" src="../node_modules/angular-touch/angular-touch.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.5/angular-route.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/1.3.2/ui-bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/1.3.2/ui-bootstrap-tpls.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.5/angular-animate.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.5/angular-touch.min.js"></script>
     <!-- ANGULAR SCRIPTS-->
     <script type="text/javascript" src="js/app.js"></script>
         <!-- controllers -->
