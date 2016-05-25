@@ -47,10 +47,10 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="reference" class="col-sm-2">Référence à un article</label>
-                    <div class="col-sm-10">
-                        <input type="text" class="form-control" name="reference" id="reference" placeholder="Référence" ng-model="reference" ng-minlength="3" ng-maxlength="100"/>
-                    </div>
+                    <label for="category" class="col-sm-2">Catégorie de l'article *</label>
+                    <select class="btn btn-success" name="category" id="category" ng-model="category" required>
+                        <option value="{{ categorie }}" ng-repeat="categorie in categories">{{ categorie }}</option>
+                    </select>
                 </div>
                 <div class="form-group">
                     <label for="conference" class="col-sm-2">Lieu de la conférence</label>
@@ -59,21 +59,9 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="category" class="col-sm-2">Catégorie de l'article *</label>
-                    <select class="btn btn-success" name="category" id="category" ng-model="category" required>
-                        <option value="{{ categorie }}" ng-repeat="categorie in categories">{{ categorie }}</option>
-                    </select>
-                </div>
-                <div class="form-group">
                     <label for="authors" class="col-sm-2">Auteurs *</label>
                     <div class="col-sm-offset-2 col-sm-10">
                         <input type="text" class="form-control" name="authors" id="authors" placeholder="auteur1, auteur2, ..." ng-model="authors" ng-minlength="3" required>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-sm-2" for="publication-file">Fichier *</label>
-                    <div class="col-sm-offset-2 col-sm-10">
-                        <input type="file" name="file" id="publication-file" ng-model="file" required>
                     </div>
                 </div>
                 <div class="form-group">
@@ -91,9 +79,7 @@
                 <div class="text-center">
                     <div class="row">
                         <div class="col-sm-9">
-                            <a href="#/publications/1/publication/1" class="publication-title">
-                                <h3 class="pull-left">Titre de la publication <small class="publication-publiee">publiée</small></h3>
-                            </a>
+                            <h3 class="pull-left">Titre de la publication</h3>
                         </div>
                         <div class="col-sm-3">
                             <h4 class="pull-right">
@@ -106,7 +92,6 @@
 
             <div class="panel-body">
                 Thèse de Doctorat<br>
-                Référence à un article<br>
                 Lieu de la conférence<br>
             </div>
 
@@ -124,9 +109,7 @@
                 <div class="text-center">
                     <div class="row">
                         <div class="col-sm-9">
-                            <a href="#/publications/1/publication/2" class="publication-title">
-                                <h3 class="pull-left">Titre de la publication 2 <small class="publication-soumise">soumise</small></h3>
-                            </a>
+                            <h3 class="pull-left">Titre de la publication 2</h3>
                         </div>
                         <div class="col-sm-3">
                             <h4 class="pull-right">
@@ -139,7 +122,6 @@
 
             <div class="panel-body">
                 Article dans des Conférences Internationales<br>
-                Référence à un article<br>
                 Lieu de la conférence<br>
             </div>
 
@@ -177,7 +159,7 @@
 
         <div class="modal-body">
 
-            <h4>Organisation et equipe</h4>
+            <h4>Organisation et laboratoire</h4>
             <div class="alert alert-info" role="alert">
                 Institut Charles Delaunay <b>Tech-CICO</b>
             </div>

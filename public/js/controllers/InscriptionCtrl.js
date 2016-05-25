@@ -8,7 +8,7 @@ app.controller('InscriptionCtrl', function($scope, $http) {
             login: $scope.login,
             password: $scope.password,
             organisation: $scope.organisation,
-            equipe: $scope.equipe
+            labo: $scope.labo
         };
 
         /*$http({
