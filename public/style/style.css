@@ -129,31 +129,11 @@ section {
     padding-top: 0px;
 }
 
-.publication-publiee {
-    color: #5cb85c;
-}
-
-.publication-en-revision {
-    color: #f0ad4e;
-}
-
-.publication-soumise {
-    color: #337ab7;
-}
-
-.publication-box-publiee {
-    border-left: 5px solid #5cb85c;
-}
-
-.publication-box-en-revision {
-    border-left: 5px solid #f0ad4e;
-}
-
-.publication-box-soumise {
+.publication-box {
     border-left: 5px solid #337ab7;
 }
 
-.publication-box-en-revision, .publication-box-publiee, .publication-box-soumise {
+.publication-box {
     border-bottom: 1px solid lightgrey;
     border-top: 1px solid lightgrey;
     margin-top: 10px;
@@ -195,18 +175,4 @@ section {
 
 .remove-user {
     color: #d9534f;
-}
-
-.stats-glyphicon {
-    font-size: 32px;
-}
-
-.panel-green {
-    background: #5cb85c;
-    color: #fff;
-}
-
-.panel-blue {
-    background: #5bc0de;
-    color: #fff;
 }
