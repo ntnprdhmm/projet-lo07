@@ -21,8 +21,14 @@ app.controller('PublicationsCtrl', function($scope, $uibModal, $http) {
         $scope.displayFilters = !$scope.displayFilters;
     };
 
+    // http requests
+
     $http({method: 'post', url: 'getLaboratoires'}).success(function(data){
         $scope.laboratoires = data;
+    });
+
+    $http({method: 'post', url: 'getPublications'}).success(function(data){
+        $scope.publications = data;
     });
 
     // MODAL
@@ -57,6 +63,5 @@ app.controller('PublicationsCtrl', function($scope, $uibModal, $http) {
             }
         });
     };
-
 
 });
