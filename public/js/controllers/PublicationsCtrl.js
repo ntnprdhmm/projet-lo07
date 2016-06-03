@@ -1,4 +1,4 @@
-app.controller('PublicationsCtrl', function($scope, $uibModal) {
+app.controller('PublicationsCtrl', function($scope, $uibModal, $http) {
 
     $scope.displayFilters = false;
     $scope.displayForm = false;
@@ -21,16 +21,9 @@ app.controller('PublicationsCtrl', function($scope, $uibModal) {
         $scope.displayFilters = !$scope.displayFilters;
     };
 
-    $scope.laboratoires = [
-        'CREIDD',
-        'ERA',
-        'GAMMA3',
-        'LASMIS',
-        'LM2S',
-        'LNIO',
-        'LOSI',
-        'Tech-CICO'
-    ];
+    $http({method: 'post', url: 'getLaboratoires'}).success(function(data){
+        $scope.laboratoires = data;
+    });
 
     // MODAL
     $scope.collaborateurs = [

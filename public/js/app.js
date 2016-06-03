@@ -7,7 +7,8 @@ app.config(['$routeProvider', function($routeProvider) {
         }).
         when('/publications/:page', {
             templateUrl: 'js/templates/pages/publications/index.html',
-            controller: 'NewPublicationCtrl'
+            controller: 'NewPublicationCtrl',
+            controller: 'PublicationsCtrl'
         }).
         when('/inscription', {
             templateUrl: 'js/templates/pages/inscription/index.html'
