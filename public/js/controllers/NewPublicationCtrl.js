@@ -8,8 +8,7 @@ app.controller('NewPublicationCtrl', function($scope) {
         "OS : Ouvrage Scientifique (Chapitre de Livre, ...)",
         "TD : Thèse de Doctorat",
         "BV : Brevet",
-        "AP : Autre Production",
-        "Conférence"
+        "AP : Autre Production"
     ];
 
 });
