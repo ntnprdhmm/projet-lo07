@@ -9,3 +9,5 @@ Route::post('api/register', 'UserController@register');
 
 
 Route::get('api/admin/accounts', 'AdminController@accounts');
+
+Route::post('getCategories', 'CategorieController@getCategories');
