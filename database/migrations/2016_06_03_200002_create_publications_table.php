@@ -15,9 +15,9 @@ class CreatePublicationsTable extends Migration
         Schema::create('publications', function (Blueprint $table) {
             $table->increments('id');
             $table->string('titre');
-            $table->integer('categorie_id')->unsigned();
+            $table->string('categorie_id');
             $table->foreign('categorie_id')
-                ->references('id')
+                ->references('slug')
                 ->on('categories');
             $table->integer('annee');
             $table->string('lieu');
