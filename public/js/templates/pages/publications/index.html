@@ -73,17 +73,17 @@
         </div>
     </div>
 
-    <div class="publication-box">
+    <div class="publication-box" ng-repeat="publication in publications">
         <div class="panel panel-publication">
             <div class="panel-heading">
                 <div class="text-center">
                     <div class="row">
                         <div class="col-sm-9">
-                            <h3 class="pull-left">Titre de la publication</h3>
+                            <h3 class="pull-left">{{ publication.titre }}</h3>
                         </div>
                         <div class="col-sm-3">
                             <h4 class="pull-right">
-                                <small><em>2014-07-30<br>18:30:00</em></small>
+                                <small><em>{{ publication.annee }}</em></small>
                             </h4>
                         </div>
                     </div>
@@ -91,44 +91,14 @@
             </div>
 
             <div class="panel-body">
-                Thèse de Doctorat<br>
-                Lieu de la conférence<br>
+                {{ publication.categorie.name }}<br>
+                <span ng-show="publication.categorie_id=='CF'||publication.categorie_id=='CI'">{{ publication.lieu }}</span><br>
             </div>
 
             <div class="panel-footer">
-                <a class="label label-default" ng-click="open('lg', 'Matthieu Tixier')">Matthieu tixier</a>
-                <a class="label label-default" ng-click="open('lg', 'Aurélien Bénel')">Aurélien Benel</a>
-                <a class="label label-default" ng-click="open('lg', 'Monsieur Patate')">Monsieur patate</a>
-            </div>
-        </div>
-    </div>
-
-    <div class="publication-box">
-        <div class="panel panel-publication">
-            <div class="panel-heading">
-                <div class="text-center">
-                    <div class="row">
-                        <div class="col-sm-9">
-                            <h3 class="pull-left">Titre de la publication 2</h3>
-                        </div>
-                        <div class="col-sm-3">
-                            <h4 class="pull-right">
-                                <small><em>2015-06-20<br>7:20:00</em></small>
-                            </h4>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="panel-body">
-                Article dans des Conférences Internationales<br>
-                Lieu de la conférence<br>
-            </div>
-
-            <div class="panel-footer">
-                <a class="label label-default" ng-click="open('lg', 'Ines Di Loreto')">Ines Di Loreto</a>
-                <a class="label label-default" ng-click="open('lg', 'JM Nigro')">JM Nigro</a>
-                <a class="label label-default" ng-click="open('lg', 'Monsieur patate')">Monsieur patate</a>
+                <a ng-repeat="auteur in publication.auteurs" class="label label-default label-auteur" ng-click="open('lg', auteur.user.id)">
+                    {{ auteur.user.prenom }} {{ auteur.user.nom }}
+                </a>
             </div>
         </div>
     </div>
@@ -181,4 +151,35 @@
     </script>
 
 </div>
+
+
+<!--<div class="publication-box">
+        <div class="panel panel-publication">
+            <div class="panel-heading">
+                <div class="text-center">
+                    <div class="row">
+                        <div class="col-sm-9">
+                            <h3 class="pull-left">Titre de la publication 2</h3>
+                        </div>
+                        <div class="col-sm-3">
+                            <h4 class="pull-right">
+                                <small><em>2015-06-20<br>7:20:00</em></small>
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel-body">
+                Article dans des Conférences Internationales<br>
+                Lieu de la conférence<br>
+            </div>
+
+            <div class="panel-footer">
+                <a class="label label-default" ng-click="open('lg', 'Ines Di Loreto')">Ines Di Loreto</a>
+                <a class="label label-default" ng-click="open('lg', 'JM Nigro')">JM Nigro</a>
+                <a class="label label-default" ng-click="open('lg', 'Monsieur patate')">Monsieur patate</a>
+            </div>
+        </div>
+    </div>-->
 

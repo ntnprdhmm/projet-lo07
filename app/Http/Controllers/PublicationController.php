@@ -10,7 +10,8 @@ class PublicationController extends Controller
 {
     public function getPublications()
     {
-        $publications = Publication::get();
+        $publications = Publication::with('categorie', 'auteurs')
+                        ->get();
 
         return $publications;
     }
