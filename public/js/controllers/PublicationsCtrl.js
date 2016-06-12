@@ -3,6 +3,12 @@ app.controller('PublicationsCtrl', function ($scope, $uibModal, $http) {
     $scope.displayFilters = false;
     $scope.displayForm = false;
 
+    $scope.sortAnnee = '+annee';
+
+    $scope.setSort = function(order){
+      $scope.sortAnnee = order;
+    };
+
     $scope.authorInput = {
         pattern: /^[a-z ]{3,50}$/i
     };

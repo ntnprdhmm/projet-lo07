@@ -62,4 +62,26 @@ class PublicationController extends Controller
 
         return response()->json(['status' => 'success'], 200);
     }
+
+    public function requetesDemo()
+    {
+        // Liste des publications présente dans la base dans l'ordre chronologique (ordonnée par catégorie et par année
+        $liste = DB::table('publications')
+            ->orderBy('annee', 'asc')
+            ->orderBy('categorie_id', 'asc')
+            ->get();
+
+        // Liste des publications pour un laboratoire donné et à partir d'une année donnée (donc formulaire avec deux paramètres)
+        $liste = Publication::find('annee', $request->input('annee'))
+            ->where('laboratoire', $request->input('labo'))
+            ->get();
+        // Liste des publications d'un chercheur donné (ordonnée par catégorie et par année)
+        $liste = DB::table('publications')
+            ->orderBy('annee', 'asc')
+            ->orderBy('categorie_id', 'asc')
+            ->get();
+        //Liste des collaborations extérieures à l'UTT d'un chercheur donné.
+        //Liste des co-auteurs d'un chercheur donné ordonnée par nombre de co-publications décroissante.
+
+    }
 }

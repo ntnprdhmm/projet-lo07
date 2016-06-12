@@ -13,15 +13,15 @@
             <form class="form-inline">
                 <div class="form-group">
                     <label for="laboratoire">Laboratoire</label>
-                    <select name="laboratoire" class="btn btn-primary" id="laboratoire">
+                    <select ng-model="search.laboratoire" name="laboratoire" class="btn btn-primary" id="laboratoire">
                         <option value="{{ labo }}" ng-repeat="labo in laboratoires">{{ labo }}</option>
                     </select>
                 </div>
                 <div class="form-group">
                     <label for="anneeFilter">Annee</label>
-                    <input type="number" name="annee" class="form-control" id="anneeFilter" placeholder="yyyy" min="1970" max="2016">
+                    <input ng-model="search.annee" type="number" name="annee" class="form-control" id="anneeFilter" placeholder="yyyy" min="1970" max="2016">
                 </div>
-                <button type="submit" class="btn btn-primary">Rechercher</button>
+                <!-- <button type="submit" class="btn btn-primary">Rechercher</button> Inutile car données en live -->
             </form>
             <hr>
             <form class="form-inline">
@@ -29,12 +29,12 @@
                     <label for="auteur">Auteur</label>
                     <input type="text" class="form-control" name="auteur" id="auteur" ng-pattern="authorInput.pattern">
                 </div>
-                <button type="submit" class="btn btn-primary">Rechercher</button>
+                <!-- <button type="submit" class="btn btn-primary">Rechercher</button> -->
             </form>
             <hr>
             <form class="form-inline">
-                <button type="submit" class="btn btn-primary">Ordre chronologique</button>
-                <button type="submit" class="btn btn-primary">Ordre antéchronologique</button>
+                <button type="submit" class="btn btn-primary" ng-click="setSort('+annee');">Ordre chronologique</button>
+                <button type="submit" class="btn btn-primary" ng-click="setSort('-annee');">Ordre antéchronologique</button>
             </form>
         </div>
 
@@ -84,7 +84,7 @@
         </div>
     </div>
 
-    <div class="publication-box" ng-repeat="publication in publications">
+    <div class="publication-box" ng-repeat="publication in publications | filter:search:strict | orderBy:sortAnnee">
         <div class="panel panel-publication">
             <div class="panel-heading">
                 <div class="text-center">
