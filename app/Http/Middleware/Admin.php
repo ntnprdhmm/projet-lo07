@@ -10,13 +10,15 @@ class Admin
     /**
      * Handle an incoming request.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Closure  $next
-     * @param  string|null  $guard
+     * @param  \Illuminate\Http\Request $request
+     * @param  \Closure $next
+     * @param  string|null $guard
      * @return mixed
      */
     public function handle($request, Closure $next, $guard = null)
     {
+        var_dump(Auth::user());
+        die();
         if (Auth::guard($guard)->guest() || Auth::user()->login != 'admin') {
             if ($request->ajax() || $request->wantsJson()) {
                 return response('Unauthorized.', 401);
@@ -24,7 +26,7 @@ class Admin
                 return redirect()->guest('login');
             }
         }
-		
+
         return $next($request);
     }
 }
