@@ -17,7 +17,8 @@ app.controller('PublicationsCtrl', function ($scope, $uibModal, $http) {
 
         return function (item) {
             for (var i = 0; i < item.auteurs.length; i++) {
-                var _ = item.auteurs[i].laboratoire;
+                var user = item.auteurs[i].user;
+                var _ = user.laboratoire;
                 if (_ != null && _ != undefined && _.toLowerCase().indexOf(lab.toLowerCase()) !== -1)
                     return true;
             }
@@ -33,11 +34,11 @@ app.controller('PublicationsCtrl', function ($scope, $uibModal, $http) {
 
         return function (item) {
             for (var i = 0; i < item.auteurs.length; i++) {
-                console.log(item.auteurs[i]);
-                var _ = item.auteurs[i].nom + item.auteurs[i].prenom + item.auteurs[i].nom;
+                var user = item.auteurs[i].user;
+                var _ = user.nom + user.prenom + user.nom;
                 // Trick to match "nom prénom" or "prénom nom"
                 console.log(_);
-                if (_ != null && _ != undefined && _ != NaN && _.toLowerCase().indexOf(author.toLowerCase()) !== -1)
+                if (_ != null && _ != undefined && _.toLowerCase().indexOf(author.toLowerCase()) !== -1)
                     return true;
             }
             return false;
