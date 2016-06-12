@@ -42,7 +42,7 @@ class PublicationController extends Controller
         }
         $pub->annee = $request->input('annee');
         $pub->titre = $request->input('title');
-        $pub->categorie_id = $categorie;
+        $pub->categorie_id = $categorie->slug;
 
         $pub->save(); // Save before users to have an ID
 
