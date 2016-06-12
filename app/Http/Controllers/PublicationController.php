@@ -11,7 +11,7 @@ class PublicationController extends Controller
 {
     public function getPublications()
     {
-        $publications = Publication::with('categorie', 'auteurs')->all();
+        $publications = Publication::with('categorie', 'auteurs')->get();
 
         return $publications;
     }

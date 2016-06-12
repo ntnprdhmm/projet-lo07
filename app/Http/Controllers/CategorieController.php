@@ -10,10 +10,11 @@ class CategorieController extends Controller
     public function getCategories()
     {
         $categories = Categorie::all();
+
         $retour = array();
 
         foreach ($categories as $categorie) {
-            array_push($retour, $categorie->slug." : ".$categorie->name);
+            $retour[] = $categorie->slug.' : '.$categorie->name;
         }
 
         return $retour;
