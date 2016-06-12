@@ -48,7 +48,7 @@ class UserController extends Controller
         if (Auth::attempt(['login' => $login, 'password' => $password])) {
             return response()->redirectToIntended('/');
         } else {
-            return response()->create(['status' => 'Invalid username/password'], 401);
+            abort(403, 'Wrong username/password :-(');
         }
     }
 }
