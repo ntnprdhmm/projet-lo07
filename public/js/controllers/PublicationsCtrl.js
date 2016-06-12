@@ -10,6 +10,11 @@ app.controller('PublicationsCtrl', function ($scope, $uibModal, $http) {
     };
 
     $scope.matchLab = function (lab) {
+        if (lab == undefined)
+            return function (item) {
+                return true;
+            };
+
         return function (item) {
             for (var i = 0; i < item.auteurs.length; i++) {
                 var _ = item.auteurs[i].laboratoire;
@@ -21,6 +26,11 @@ app.controller('PublicationsCtrl', function ($scope, $uibModal, $http) {
     };
 
     $scope.matchAuthor = function (author) {
+        if (author == undefined)
+            return function (item) {
+                return true;
+            };
+
         return function (item) {
             for (var i = 0; i < item.auteurs.length; i++) {
                 var _ = item.auteurs[i].nom + item.auteurs[i].prenom + item.auteurs[i].nom;
