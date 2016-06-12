@@ -46,29 +46,26 @@
                 <div class="form-group">
                     <label for="title" class="col-sm-2">Titre de la publication *</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" name="title" id="title" placeholder="Titre"
-                               ng-model="title" ng-minlength="3" ng-maxlength="200" required/>
+                        <input type="text" class="form-control" name="title" id="title" placeholder="Titre" ng-model="title" ng-minlength="3" ng-maxlength="200" required/>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="category" class="col-sm-2">Catégorie de l'article *</label>
                     <select class="btn btn-success" name="category" id="category" ng-model="category" required>
-                        <option value="{{ categorie }}" ng-repeat="categorie in categories">{{ categorie }}</option>
+                        <option value="{{ categorie.slug }}" ng-repeat="categorie in categories">{{ categorie }}</option>
                     </select>
                 </div>
                 <div class="form-group"
-                     ng-show="category=='CI : Article dans des Conférences Internationales'||category=='CF : Article dans des Conférences Françaises'">
+                     ng-show="category=='CI'||category=='CF'">
                     <label for="conference" class="col-sm-2">Lieu de la conférence</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" name="conference" id="conference"
-                               placeholder="Conférence" ng-model="conference" ng-minlength="3" ng-maxlength="100"/>
+                        <input type="text" class="form-control" name="conference" id="conference" placeholder="Conférence" ng-model="conference" ng-minlength="3" ng-maxlength="100"/>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="authors" class="col-sm-2">Auteurs *</label>
                     <div class="col-sm-offset-2 col-sm-10">
-                        <input type="text" class="form-control" name="authors" id="authors"
-                               placeholder="auteur1, auteur2, ..." ng-model="authors" ng-minlength="3" required>
+                        <input type="text" class="form-control" name="authors" id="authors" placeholder="auteur1, auteur2, ..." ng-model="authors" ng-minlength="3" required>
                     </div>
                 </div>
                 <div class="form-group">
