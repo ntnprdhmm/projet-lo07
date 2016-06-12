@@ -17,8 +17,6 @@ class Admin
      */
     public function handle($request, Closure $next, $guard = null)
     {
-        var_dump(Auth::user());
-        die();
         if (Auth::guard($guard)->guest() || Auth::user()->login != 'admin') {
             if ($request->ajax() || $request->wantsJson()) {
                 return response('Unauthorized.', 401);

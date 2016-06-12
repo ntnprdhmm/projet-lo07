@@ -15,7 +15,7 @@
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="#/admin"><b>administration</b></a></li>
                 @if(Auth::check())
-                    <li>{{ Auth::user()->login }}</li>
+                    <li><a href="javascript:">{{ Auth::user()->login }}</a></li>
                 @else
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>Se connecter</b> <span class="caret"></span></a>
