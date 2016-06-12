@@ -1,10 +1,11 @@
-app.controller('ModalInstanceCtrl', function ($scope, $uibModalInstance, author, collaborateurs) {
+app.controller('ModalInstanceCtrl', function ($scope, $uibModalInstance, author, collaborateurs, listScope) {
 
     $scope.author = author;
     $scope.collaborateurs = collaborateurs;
+    $scope.listScope = listScope;
 
     $scope.search = function () {
-        // select publications where author = author
+        $scope.listScope.search_author = author.nom + " " + author.prenom;
         $uibModalInstance.close();
     };
 

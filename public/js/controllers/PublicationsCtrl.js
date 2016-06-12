@@ -108,6 +108,9 @@ app.controller('PublicationsCtrl', function ($scope, $uibModal, $http) {
                 },
                 collaborateurs: function () {
                     return $scope.collaborateurs;
+                },
+                listScope: function(){
+                    return $scope;
                 }
             }
         });
