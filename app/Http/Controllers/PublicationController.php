@@ -40,9 +40,9 @@ class PublicationController extends Controller
             );
             $pub->label = $request->input('conference');
         }
-        // $pub->label = $request->input('label');
+        $pub->annee = $request->input('annee');
         $pub->titre = $request->input('title');
-        $pub->categorie = $categorie;
+        $pub->categorie_id = $categorie;
 
         $pub->save(); // Save before users to have an ID
 
