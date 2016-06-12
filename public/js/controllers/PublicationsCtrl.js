@@ -37,7 +37,7 @@ app.controller('PublicationsCtrl', function ($scope, $uibModal, $http) {
                 var user = item.auteurs[i].user;
                 var _ = user.nom + " " + user.prenom + " " + user.nom;
                 // Trick to match "nom prénom" or "prénom nom"
-                console.log(_);
+                
                 if (_ != null && _ != undefined && _.toLowerCase().indexOf(author.toLowerCase()) !== -1)
                     return true;
             }

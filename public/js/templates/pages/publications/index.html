@@ -84,7 +84,7 @@
         </div>
     </div>
 
-    <div class="publication-box" ng-repeat="publication in publications | filter:search:strict | filter:matchLab(filterLabo) | filter:matchAuthor(filtreAuteur) | orderBy:sortAnnee">
+    <div class="publication-box" ng-repeat="publication in publications | filter:search:strict | filter:matchLab(filterLabo) | filter:matchAuthor(filtreAuteur) | orderBy:sortAnnee as filteredPublications">
         <div class="panel panel-publication">
             <div class="panel-heading">
                 <div class="text-center">
@@ -113,6 +113,9 @@
                 </a>
             </div>
         </div>
+    </div>
+    <div ng-show="filteredPublications.length == 0">
+        Aucune publication n'a pu être trouvée.
     </div>
     <!--
         <nav class="text-center">
