@@ -10,10 +10,10 @@ class LaboratoireController extends Controller
     public function getLaboratoires()
     {
         $laboratoires = Laboratoire::all();
-        $retour = array();
+        $retour = [];
 
         foreach ($laboratoires as $laboratoire) {
-            array_push($retour, $laboratoire->slug);
+            $retour[] = $laboratoire->slug;
         }
 
         return $retour;

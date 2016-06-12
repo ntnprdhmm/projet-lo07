@@ -11,7 +11,7 @@ class CategorieController extends Controller
     {
         $categories = Categorie::all();
 
-        $retour = array();
+        $retour = [];
 
         foreach ($categories as $categorie) {
             $retour[] = $categorie->slug.' : '.$categorie->name;

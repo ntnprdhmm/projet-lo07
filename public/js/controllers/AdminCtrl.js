@@ -1,5 +1,9 @@
-app.controller('AdminCtrl', function($scope){
+app.controller('AdminCtrl', function ($scope) {
 
+    $http({method: 'post', url: 'api/admin/accounts'}).success(function(data){
+        $scope.users = data.accounts;
+    });
+/*
     $scope.users = [
         {
             name: "JM Nigro",
@@ -25,12 +29,10 @@ app.controller('AdminCtrl', function($scope){
             orga: "Institut Charles Delaunay",
             labo: "LASMIS"
         },
-    ];
+    ];*/
 
-    $scope.deleteAccount = function(id){
-
-
-
-    };
+    /*$scope.deleteAccount = function (id) {
+        // Pas demandé, pas fait.
+    };*/
 
 });
