@@ -21,6 +21,7 @@ app.controller('PublicationsCtrl', function ($scope, $uibModal, $http) {
         $scope.displayFilters = !$scope.displayFilters;
     };
 
+    
     // http requests
 
     $http({url: '/api/laboratoires'}).success(function (data) {

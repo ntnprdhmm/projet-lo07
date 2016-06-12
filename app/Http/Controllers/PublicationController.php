@@ -20,19 +20,23 @@ class PublicationController extends Controller
     {
         $this->validate(
             $request, [
-                'titre' => 'required|max:255',
-                'annee' => 'required',
-                'lieu' => 'required|max:255',
-                'label' => 'required|max:255',
-                'categorie_id' => 'required',
+                'title' => 'required|max:255',
+                // 'annee' => 'required',
+                // 'lieu' => 'required|max:255',
+                // 'label' => 'required|max:255',
+                'category' => 'required',
+                'authors' => 'required',
             ]
         );
         $categorie = Categorie::findOrFail($request->input('categorie_id'));
         $pub = new Publication();
-        $pub->label = $request->input('label');
-        $pub->titre = $request->input('titre');
-        $pub->annee = $request->input('annee');
+        // $pub->label = $request->input('label');
+        $pub->titre = $request->input('title');
+        // $pub->annee = $request->input('annee');
+        $auteurs = array_map(function ($v) { return trim($v); }, explode(',', $request->input('annee')));
         $pub->categorie = $categorie;
+        var_dump($auteurs, $pub);
+        die();
         $pub->save();
 
         return response()->json(['status' => 'success'], 200);
