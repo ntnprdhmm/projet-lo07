@@ -27,7 +27,7 @@ class UserController extends Controller
         $user->prenom = $request->input('firstname');
         $user->password = bcrypt($request->input('password'));
         $user->organisation = 'UTT'; // $request->input('organisation');
-        $user->labo = $request->input('labo');
+        $user->laboratoire = $request->input('labo');
         $user->save();
 
         Auth::login($user);
