@@ -22,7 +22,6 @@ class PublicationController extends Controller
             $request, [
                 'title' => 'required|max:255',
                 // 'annee' => 'required',
-                // 'lieu' => 'required|max:255',
                 // 'label' => 'required|max:255',
                 'category' => 'required',
                 'authors' => 'required',
@@ -42,8 +41,7 @@ class PublicationController extends Controller
         }
         // $pub->label = $request->input('label');
         $pub->titre = $request->input('title');
-        // $pub->annee = $request->input('annee');
-        $auteurs = array_map(function ($v) { return trim($v); }, explode(',', $request->input('annee')));
+        $auteurs = array_map(function ($v) { return trim($v); }, explode(',', $request->input('authors')));
         $pub->categorie = $categorie;
         var_dump($auteurs, $pub);
         die();
