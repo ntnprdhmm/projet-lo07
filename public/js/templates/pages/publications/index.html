@@ -148,7 +148,7 @@
     <script type="text/ng-template" id="authorModal">
 
         <div class="modal-header">
-            <h3 class="modal-title">#{{ author.id }}  &dash; {{ author.nom }} {{ author.prenom }}</h3>
+            <h3 class="modal-title">#{{ author.id }}  &dash; {{ author.nom }} {{ author.prenom }} <small ng-if="author.login">{{ author.login }}</small></h3>
         </div>
 
         <div class="modal-body">
@@ -168,7 +168,9 @@
         </div>
 
         <div class="modal-footer">
-            <button class="btn btn-success" type="button" ng-click="search()">Publications de {{ author }}</button>
+            <button class="btn btn-success" type="button" ng-click="search_author = '{{ author.nom}} {{ author.prenom}}'; close()">
+                Publications de {{ author.nom }} {{ author.prenom }}
+            </button>
             <button class="btn btn-primary" type="button" ng-click="close()">Fermer</button>
         </div>
 
