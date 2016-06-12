@@ -10,7 +10,7 @@ app.controller('PublicationsCtrl', function ($scope, $uibModal, $http) {
     };
 
     $scope.matchLab = function (lab) {
-        if (lab == undefined)
+        if (lab == undefined || lab == "")
             return function (item) {
                 return true;
             };
@@ -27,7 +27,7 @@ app.controller('PublicationsCtrl', function ($scope, $uibModal, $http) {
     };
 
     $scope.matchAuthor = function (author) {
-        if (author == undefined)
+        if (author == undefined || author == "")
             return function (item) {
                 return true;
             };
@@ -37,7 +37,7 @@ app.controller('PublicationsCtrl', function ($scope, $uibModal, $http) {
                 var user = item.auteurs[i].user;
                 var _ = user.nom + " " + user.prenom + " " + user.nom;
                 // Trick to match "nom prénom" or "prénom nom"
-                
+
                 if (_ != null && _ != undefined && _.toLowerCase().indexOf(author.toLowerCase()) !== -1)
                     return true;
             }
