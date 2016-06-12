@@ -14,7 +14,6 @@ class UserController extends Controller
         $this->validate(
             $request, [
                 'login' => 'required|unique:users|max:255',
-                'email' => 'required|email',
                 'name' => 'required|max:255',
                 'firstname' => 'required|max:255',
                 'password' => 'required',
@@ -27,7 +26,6 @@ class UserController extends Controller
         $user->nom = $request->input('name');
         $user->prenom = $request->input('firstname');
         $user->password = bcrypt($request->input('password'));
-        $user->email = $request->input('email');
         $user->organisation = 'UTT'; // $request->input('organisation');
         $user->labo = $request->input('labo');
         $user->save();
