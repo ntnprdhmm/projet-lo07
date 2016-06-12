@@ -13,7 +13,7 @@
             <form class="form-inline">
                 <div class="form-group">
                     <label for="laboratoire">Laboratoire</label>
-                    <select ng-model="search.laboratoire" name="laboratoire" class="btn btn-primary" id="laboratoire">
+                    <select ng-model="filterLabo" name="laboratoire" class="btn btn-primary" id="laboratoire">
                         <option value="{{ labo }}" ng-repeat="labo in laboratoires">{{ labo }}</option>
                     </select>
                 </div>
@@ -27,7 +27,7 @@
             <form class="form-inline">
                 <div class="form-group">
                     <label for="auteur">Auteur</label>
-                    <input type="text" class="form-control" name="auteur" id="auteur" ng-pattern="authorInput.pattern">
+                    <input ng-model="filtreAuteur" type="text" class="form-control" name="auteur" id="auteur" ng-pattern="authorInput.pattern">
                 </div>
                 <!-- <button type="submit" class="btn btn-primary">Rechercher</button> -->
             </form>
@@ -84,7 +84,7 @@
         </div>
     </div>
 
-    <div class="publication-box" ng-repeat="publication in publications | filter:search:strict | orderBy:sortAnnee">
+    <div class="publication-box" ng-repeat="publication in publications | filter:search:strict | filter:filterLabo:filterLab | filter:filtreAuteur:filterAuthor | orderBy:sortAnnee">
         <div class="panel panel-publication">
             <div class="panel-heading">
                 <div class="text-center">

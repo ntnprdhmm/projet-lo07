@@ -5,9 +5,22 @@ app.controller('PublicationsCtrl', function ($scope, $uibModal, $http) {
 
     $scope.sortAnnee = '+annee';
 
-    $scope.setSort = function(order){
-      $scope.sortAnnee = order;
+    $scope.setSort = function (order) {
+        $scope.sortAnnee = order;
     };
+
+    $scope.filterLab = function (actual, expected) {
+        console.log(actual);
+        console.log(expected);
+        return true;
+    };
+    
+    $scope.filterAuthor = function (actual, expected) {
+        console.log(actual);
+        console.log(expected);
+        return true;
+    };
+
 
     $scope.authorInput = {
         pattern: /^[a-z ]{3,50}$/i
