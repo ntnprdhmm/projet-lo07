@@ -117,7 +117,7 @@
 
             <div class="panel-footer">
                 <a ng-repeat="auteur in publication.auteurs" class="label label-default label-auteur"
-                   ng-click="open('lg', auteur.user.id)">
+                   ng-click="open('lg', auteur.user)">
                     {{ auteur.user.prenom }} {{ auteur.user.nom }}
                 </a>
             </div>
@@ -148,14 +148,14 @@
     <script type="text/ng-template" id="authorModal">
 
         <div class="modal-header">
-            <h3 class="modal-title">{{ author }}</h3>
+            <h3 class="modal-title">#{{ author.id }}  &dash; {{ author.nom }} {{ author.prenom }}</h3>
         </div>
 
         <div class="modal-body">
 
             <h4>Organisation et laboratoire</h4>
             <div class="alert alert-info" role="alert">
-                Institut Charles Delaunay <b>Tech-CICO</b>
+                {{ author.organisation }} <b>{{ author.laboratoire }} </b>
             </div>
 
             <h4>Collaborateurs</h4>
