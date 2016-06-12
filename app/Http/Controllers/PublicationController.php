@@ -16,7 +16,7 @@ class PublicationController extends Controller
         return $publications;
     }
 
-    public function create(Request $request)
+    public function addPublications(Request $request)
     {
         $this->validate(
             $request, [
