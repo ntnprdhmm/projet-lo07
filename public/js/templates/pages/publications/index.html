@@ -4,7 +4,8 @@
 
     <div>
         <div>
-            <button ng-click="toggleForm()" class="btn btn-success" id="btn-creation-publication">Créer publication</button>
+            <button ng-click="toggleForm()" class="btn btn-success" id="btn-creation-publication">Créer publication
+            </button>
             <button ng-click="toggleFilters()" class="btn btn-primary" id="btn-filtrer-publication">Filtrer</button>
         </div>
 
@@ -39,11 +40,14 @@
         </div>
 
         <div id="form-publication-container" ng-show="displayForm" ng-controller="NewPublicationCtrl">
-            <form name="newPublicationForm" class="form-horizontal" ng-submit="newPublicationFormSubmit(newPublicationForm.$valid)" novalidate autocomplete="off" enctype="multipart/form-data">
+            <form name="newPublicationForm" class="form-horizontal"
+                  ng-submit="newPublicationFormSubmit(newPublicationForm.$valid)" novalidate autocomplete="off"
+                  enctype="multipart/form-data">
                 <div class="form-group">
                     <label for="title" class="col-sm-2">Titre de la publication *</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" name="title" id="title" placeholder="Titre" ng-model="title" ng-minlength="3" ng-maxlength="200" required/>
+                        <input type="text" class="form-control" name="title" id="title" placeholder="Titre"
+                               ng-model="title" ng-minlength="3" ng-maxlength="200" required/>
                     </div>
                 </div>
                 <div class="form-group">
@@ -52,21 +56,26 @@
                         <option value="{{ categorie }}" ng-repeat="categorie in categories">{{ categorie }}</option>
                     </select>
                 </div>
-                <div class="form-group" ng-show="category=='CI : Article dans des Conférences Internationales'||category=='CF : Article dans des Conférences Françaises'">
+                <div class="form-group"
+                     ng-show="category=='CI : Article dans des Conférences Internationales'||category=='CF : Article dans des Conférences Françaises'">
                     <label for="conference" class="col-sm-2">Lieu de la conférence</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" name="conference" id="conference" placeholder="Conférence" ng-model="conference" ng-minlength="3" ng-maxlength="100"/>
+                        <input type="text" class="form-control" name="conference" id="conference"
+                               placeholder="Conférence" ng-model="conference" ng-minlength="3" ng-maxlength="100"/>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="authors" class="col-sm-2">Auteurs *</label>
                     <div class="col-sm-offset-2 col-sm-10">
-                        <input type="text" class="form-control" name="authors" id="authors" placeholder="auteur1, auteur2, ..." ng-model="authors" ng-minlength="3" required>
+                        <input type="text" class="form-control" name="authors" id="authors"
+                               placeholder="auteur1, auteur2, ..." ng-model="authors" ng-minlength="3" required>
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="col-sm-offset-2 col-sm-10">
-                        <button type="submit" class="btn btn-success" ng-disabled="newPublicationForm.$invalid">Création</button>
+                        <button type="submit" class="btn btn-success" ng-disabled="newPublicationForm.$invalid">
+                            Création
+                        </button>
                     </div>
                 </div>
             </form>
@@ -96,31 +105,32 @@
             </div>
 
             <div class="panel-footer">
-                <a ng-repeat="auteur in publication.auteurs" class="label label-default label-auteur" ng-click="open('lg', auteur.user.id)">
+                <a ng-repeat="auteur in publication.auteurs" class="label label-default label-auteur"
+                   ng-click="open('lg', auteur.user.id)">
                     {{ auteur.user.prenom }} {{ auteur.user.nom }}
                 </a>
             </div>
         </div>
     </div>
-
-    <nav class="text-center">
-        <ul class="pagination">
-            <li>
-                <a href="#/publications/1" aria-label="Previous">
-                    <span aria-hidden="true">&laquo;</span>
-                </a>
-            </li>
-            <li><a href="#/publications/1">1</a></li>
-            <li><a href="#/publications/2">2</a></li>
-            <li><a href="#/publications/3">3</a></li>
-            <li>
-                <a href="#/publications/1" aria-label="Next">
-                    <span aria-hidden="true">&raquo;</span>
-                </a>
-            </li>
-        </ul>
-    </nav>
-
+    <!--
+        <nav class="text-center">
+            <ul class="pagination">
+                <li>
+                    <a href="#/publications/1" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+                <li><a href="#/publications/1">1</a></li>
+                <li><a href="#/publications/2">2</a></li>
+                <li><a href="#/publications/3">3</a></li>
+                <li>
+                    <a href="#/publications/1" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    -->
     <script type="text/ng-template" id="authorModal">
 
         <div class="modal-header">
