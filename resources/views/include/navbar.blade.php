@@ -14,39 +14,43 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="#/admin"><b>administration</b></a></li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>Se connecter</b> <span class="caret"></span></a>
-                    <ul id="login-dp" class="dropdown-menu">
-                        <li>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <form class="form" role="form" method="post" action="login" accept-charset="UTF-8" id="login-nav">
-                                        <div class="form-group">
-                                            <label class="sr-only" for="login">Login</label>
-                                            <input type="text" class="form-control" id="login" placeholder="Login" required>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="sr-only" for="password">Mot de passe</label>
-                                            <input type="password" class="form-control" id="password" placeholder="Mot de passe" required>
-                                            <div class="help-block text-right"><a href="">Mot de passe oublié ?</a></div>
-                                        </div>
-                                        <div class="form-group">
-                                            <button type="submit" class="btn btn-primary btn-block">Connexion</button>
-                                        </div>
-                                        <div class="checkbox">
-                                            <label >
-                                                <input type="checkbox"> Se souvenir
-                                            </label>
-                                        </div>
-                                    </form>
+                @if(Auth::check())
+                    <li>{{ Auth::user()->login }}</li>
+                @else
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>Se connecter</b> <span class="caret"></span></a>
+                        <ul id="login-dp" class="dropdown-menu">
+                            <li>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <form class="form" role="form" method="post" action="login" accept-charset="UTF-8" id="login-nav">
+                                            <div class="form-group">
+                                                <label class="sr-only" for="login">Login</label>
+                                                <input name="login" type="text" class="form-control" id="login" placeholder="Login" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="sr-only" for="password">Mot de passe</label>
+                                                <input name="password" type="password" class="form-control" id="password" placeholder="Mot de passe" required>
+                                                <div class="help-block text-right"><a href="">Mot de passe oublié ?</a></div>
+                                            </div>
+                                            <div class="form-group">
+                                                <button type="submit" class="btn btn-primary btn-block">Connexion</button>
+                                            </div>
+                                            <div class="checkbox">
+                                                <label >
+                                                    <input type="checkbox"> Se souvenir
+                                                </label>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="bottom text-center">
+                                        Chercheur sans compte ? <a href="#/inscription"><b>Inscription</b></a>
+                                    </div>
                                 </div>
-                                <div class="bottom text-center">
-                                    Chercheur sans compte ? <a href="#/inscription"><b>Inscription</b></a>
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
-                </li>
+                            </li>
+                        </ul>
+                    </li>
+                @endif
             </ul>
         </div>
 
