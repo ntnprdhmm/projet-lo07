@@ -1,6 +1,6 @@
-app.controller('InscriptionCtrl', function($scope, $http) {
+app.controller('InscriptionCtrl', function ($scope, $http) {
 
-    $scope.registerFormSubmit = function(isValid) {
+    $scope.registerFormSubmit = function (isValid) {
 
         $scope.formData = {
             name: $scope.name,
@@ -11,17 +11,15 @@ app.controller('InscriptionCtrl', function($scope, $http) {
             labo: $scope.labo
         };
 
-        /*$http({
-            method  : 'POST',
-            url     : '',
-            data    : $.param($scope.formData),
-            headers : { 'Content-Type': 'application/x-www-form-urlencoded' }
-        })
-            .success(function(data) {
-
-            });*/
-
-
+        $http({
+            method: 'POST',
+            url: '/api/register',
+            data: $.param($scope.formData),
+            headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+        }).success(function (data) {
+            console.log(data);
+            alert('OK ! :)');
+        });
     };
 
 });

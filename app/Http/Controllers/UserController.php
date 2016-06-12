@@ -16,18 +16,20 @@ class UserController extends Controller
                 'login' => 'required|unique:users|max:255',
                 'email' => 'required|email',
                 'name' => 'required|max:255',
+                'firstname' => 'required|max:255',
                 'password' => 'required',
-                'equipe' => 'required|max:255',
-                //'organisation'	=> 'required|max:255'
+                'labo' => 'required|max:255',
+                'organisation' => 'required|max:255',
             ]
         );
         $user = new User();
         $user->login = $request->input('login');
-        $user->name = $request->input('name');
+        $user->nom = $request->input('name');
+        $user->prenom = $request->input('firstname');
         $user->password = bcrypt($request->input('password'));
         $user->email = $request->input('email');
         $user->organisation = 'UTT'; // $request->input('organisation');
-        $user->equipe = $request->input('equipe');
+        $user->labo = $request->input('labo');
         $user->save();
 
         Auth::login($user);
@@ -46,9 +48,9 @@ class UserController extends Controller
         $login = $request->input('login');
         $password = $request->input('password');
         if (Auth::attempt(['login' => $login, 'password' => $password])) {
-            return response()->json(['status' => 'success'], 200);
+            return response()->redirectToIntended('/');
         } else {
-            return response()->json(['status' => 'invalid'], 401);
+            return response()->create(['status' => 'Invalid username/password'], 401);
         }
     }
 }

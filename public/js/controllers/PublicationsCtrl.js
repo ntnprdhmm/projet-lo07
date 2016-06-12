@@ -1,4 +1,4 @@
-app.controller('PublicationsCtrl', function($scope, $uibModal, $http) {
+app.controller('PublicationsCtrl', function ($scope, $uibModal, $http) {
 
     $scope.displayFilters = false;
     $scope.displayForm = false;
@@ -7,15 +7,15 @@ app.controller('PublicationsCtrl', function($scope, $uibModal, $http) {
         pattern: /^[a-z ]{3,50}$/i
     };
 
-    $scope.toggleForm = function() {
-        if($scope.displayFilters) {
+    $scope.toggleForm = function () {
+        if ($scope.displayFilters) {
             $scope.toggleFilters();
         }
         $scope.displayForm = !$scope.displayForm;
     };
 
-    $scope.toggleFilters = function() {
-        if($scope.displayForm) {
+    $scope.toggleFilters = function () {
+        if ($scope.displayForm) {
             $scope.toggleForm();
         }
         $scope.displayFilters = !$scope.displayFilters;
@@ -23,11 +23,11 @@ app.controller('PublicationsCtrl', function($scope, $uibModal, $http) {
 
     // http requests
 
-    $http({method: 'post', url: 'getLaboratoires'}).success(function(data){
+    $http({url: '/api/laboratoires'}).success(function (data) {
         $scope.laboratoires = data;
     });
 
-    $http({method: 'post', url: 'getPublications'}).success(function(data){
+    $http({url: '/api/publications'}).success(function (data) {
         $scope.publications = data;
     });
 
@@ -54,10 +54,10 @@ app.controller('PublicationsCtrl', function($scope, $uibModal, $http) {
             controller: 'ModalInstanceCtrl',
             size: size,
             resolve: {
-                author: function() {
+                author: function () {
                     return author;
                 },
-                collaborateurs: function() {
+                collaborateurs: function () {
                     return $scope.collaborateurs;
                 }
             }
