@@ -13,9 +13,11 @@
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#/admin"><b>administration</b></a></li>
                 @if(Auth::check())
-                    <li><a href="javascript:">{{ Auth::user()->login }}</a></li>
+                    @if(Auth::user()->login == "admin")
+                        <li><a href="#/admin"><b>administration</b></a></li>
+                    @endif
+                    <li><a href="javascript:">Bonjour, {{ Auth::user()->login }}</a></li>
                 @else
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>Se connecter</b> <span class="caret"></span></a>
