@@ -12,5 +12,5 @@ Route::post('api/register', 'UserController@register');
 Route::get('api/admin/accounts', 'AdminController@accounts');
 
 Route::get('api/categories', 'CategorieController@getCategories');
-Route::post('api/laboratoires', 'LaboratoireController@getLaboratoires');
-Route::post('api/publications', 'PublicationController@getPublications');
+Route::get('api/laboratoires', 'LaboratoireController@getLaboratoires');
+Route::get('api/publications', 'PublicationController@getPublications');
