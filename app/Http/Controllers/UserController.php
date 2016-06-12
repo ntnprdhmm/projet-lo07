@@ -13,13 +13,13 @@ class UserController extends Controller
     {
         $this->validate(
             $request, [
-            'login' => 'required|unique:users|max:255',
-            'email' => 'required|email',
-            'name' => 'required|max:255',
-            'password' => 'required',
-            'equipe' => 'required|max:255',
-            //'organisation'	=> 'required|max:255'
-        ]
+                'login' => 'required|unique:users|max:255',
+                'email' => 'required|email',
+                'name' => 'required|max:255',
+                'password' => 'required',
+                'equipe' => 'required|max:255',
+                //'organisation'	=> 'required|max:255'
+            ]
         );
         $user = new User();
         $user->login = $request->input('login');
@@ -30,16 +30,18 @@ class UserController extends Controller
         $user->equipe = $request->input('equipe');
         $user->save();
 
-        return response()->json(['status' => 'success'], 200);
+        Auth::login($user);
+
+        return response()->redirectToIntended('/');
     }
 
     public function login(Request $request)
     {
         $this->validate(
             $request, [
-            'login' => 'required|max:255',
-            'password' => 'required',
-        ]
+                'login' => 'required|max:255',
+                'password' => 'required',
+            ]
         );
         $login = $request->input('login');
         $password = $request->input('password');
