@@ -5,7 +5,7 @@ app.controller('ModalInstanceCtrl', function ($scope, $uibModalInstance, author,
     $scope.listScope = listScope;
 
     $scope.search = function () {
-        $scope.listScope.filtreAuteur = author.nom + " " + author.prenom;
+        $scope.listScope.filtreAuteur = author.prenom + " " + author.nom;
         $uibModalInstance.close();
     };
 
