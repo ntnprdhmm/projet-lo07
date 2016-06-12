@@ -10,7 +10,8 @@ app.controller('NewPublicationCtrl', function ($scope, $http) {
             title: $scope.title,
             category: $scope.category,
             authors: $scope.authors,
-            conference: $scope.conference
+            conference: $scope.conference,
+            annee: $scope.annee
         };
 
         $http({

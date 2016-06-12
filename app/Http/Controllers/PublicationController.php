@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\User;
+use App\Auteur;
 use App\Categorie;
 use App\Http\Requests;
 use App\Publication;
+use App\User;
 use Illuminate\Http\Request;
 
 class PublicationController extends Controller
@@ -22,8 +23,7 @@ class PublicationController extends Controller
         $this->validate(
             $request, [
                 'title' => 'required|max:255',
-                // 'annee' => 'required',
-                // 'label' => 'required|max:255',
+                'annee' => 'required',
                 'category' => 'required',
                 'authors' => 'required',
             ]
@@ -44,17 +44,21 @@ class PublicationController extends Controller
         $pub->titre = $request->input('title');
         $pub->categorie = $categorie;
 
+        $pub->save(); // Save before users to have an ID
+
         $auteurs = array_map(function ($v) { return trim($v); }, explode(',', $request->input('authors')));
-        foreach($auteurs as $_){
+        $pos = 0;
+        foreach ($auteurs as $_) {
             $parts = explode(' ', $_);
             $user = User::whereIn('nom', $parts)->whereIn('prenom', $parts)->first();
             // ^ Laid, mais permet une certaine flexibilité pour l'utilisateur
-            var_dump($user);
-        }
+            // Ne fonctionne pas avec "Jean Jean", mais ... cas trop rare pour mériter mon attention
 
-        var_dump($auteurs, $pub);
-        die();
-        $pub->save();
+            if ($user == null) {
+                $user = User::create(['nom' => $_, 'prenom' => '']);
+            }
+            Auteur::create(['publication_id' => $pub->id, 'user_id' => $user->id, 'position' => ++$pos]);
+        }
 
         return response()->json(['status' => 'success'], 200);
     }

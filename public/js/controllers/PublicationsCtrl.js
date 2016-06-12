@@ -21,7 +21,12 @@ app.controller('PublicationsCtrl', function ($scope, $uibModal, $http) {
         $scope.displayFilters = !$scope.displayFilters;
     };
 
-    
+    $scope.annees = [];
+    var i;
+    for (i = 1980; i <= 2016; i++) {
+        $scope.annees.push(i);
+    }
+
     // http requests
 
     $http({url: '/api/laboratoires'}).success(function (data) {
