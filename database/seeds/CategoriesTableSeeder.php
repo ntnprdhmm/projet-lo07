@@ -11,15 +11,17 @@ class CategoriesTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('categories')->insert(array(
-            array('slug' => 'AP', 'name' => 'Autre Production'),
-            array('slug' => 'BV', 'name' => 'Brevet'),
-            array('slug' => 'CF', 'name' => 'Article dans des Conférences Françaises'),
-            array('slug' => 'CI', 'name' => 'Article dans des Conférences Internationales'),
-            array('slug' => 'OS', 'name' => 'Ouvrage Scientifique'),
-            array('slug' => 'RF', 'name' => 'Article dans des Revues Françaises'),
-            array('slug' => 'RI', 'name' => 'Article dans des Revues Internationales'),
-            array('slug' => 'TD', 'name' => 'Thèse de Doctorat')
-        ));
+        DB::table('categories')->insert(
+            [
+                ['slug' => 'AP', 'name' => 'Autre Production'],
+                ['slug' => 'BV', 'name' => 'Brevet'],
+                ['slug' => 'CF', 'name' => 'Article dans des Conférences Françaises'],
+                ['slug' => 'CI', 'name' => 'Article dans des Conférences Internationales'],
+                ['slug' => 'OS', 'name' => 'Ouvrage Scientifique'],
+                ['slug' => 'RF', 'name' => 'Article dans des Revues Françaises'],
+                ['slug' => 'RI', 'name' => 'Article dans des Revues Internationales'],
+                ['slug' => 'TD', 'name' => 'Thèse de Doctorat'],
+            ]
+        );
     }
 }

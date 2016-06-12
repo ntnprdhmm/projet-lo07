@@ -1,7 +1,7 @@
 <?php
 
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
 
 class CreatePublicationsTable extends Migration
 {
@@ -12,7 +12,8 @@ class CreatePublicationsTable extends Migration
      */
     public function up()
     {
-        Schema::create('publications', function (Blueprint $table) {
+        Schema::create(
+            'publications', function (Blueprint $table) {
             $table->increments('id');
             $table->string('titre');
             $table->string('categorie_id');
@@ -21,7 +22,9 @@ class CreatePublicationsTable extends Migration
                 ->on('categories');
             $table->integer('annee');
             $table->string('lieu');
-        });
+            $table->string('label'); // Label de l'ouvrage/conférence
+        }
+        );
     }
 
     /**
@@ -31,10 +34,11 @@ class CreatePublicationsTable extends Migration
      */
     public function down()
     {
-        Schema::table('publications', function($table)
-        {
+        Schema::table(
+            'publications', function ($table) {
             $table->dropForeign('publications_categorie_id_foreign');
-        });
+        }
+        );
         Schema::drop('publications');
     }
 }

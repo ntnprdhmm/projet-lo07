@@ -1,7 +1,7 @@
 <?php
 
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
 
 class CreateAuteursTable extends Migration
 {
@@ -12,7 +12,8 @@ class CreateAuteursTable extends Migration
      */
     public function up()
     {
-        Schema::create('auteurs', function (Blueprint $table) {
+        Schema::create(
+            'auteurs', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('position');
             $table->integer('publication_id')->unsigned();
@@ -23,7 +24,8 @@ class CreateAuteursTable extends Migration
             $table->foreign('user_id')
                 ->references('id')
                 ->on('users');
-        });
+        }
+        );
     }
 
     /**
@@ -33,11 +35,12 @@ class CreateAuteursTable extends Migration
      */
     public function down()
     {
-        Schema::table('auteurs', function($table)
-        {
+        Schema::table(
+            'auteurs', function ($table) {
             $table->dropForeign('auteurs_user_id_foreign');
             $table->dropForeign('auteurs_publication_id_foreign');
-        });
+        }
+        );
         Schema::drop('auteurs');
     }
 }

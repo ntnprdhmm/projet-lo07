@@ -9,6 +9,7 @@ Projet web LO07 @UTTroyes
 * copier le contenu de .env.example dans .env
 * adapter les informations de .env
 * generer une cle de projet : "php artisan key:generate"
+* php artisan migrate:refresh --seed
 
 ## mise à jour des dépendances 
 
