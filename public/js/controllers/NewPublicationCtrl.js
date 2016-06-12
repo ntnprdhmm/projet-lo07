@@ -9,7 +9,8 @@ app.controller('NewPublicationCtrl', function ($scope, $http) {
         $scope.formData = {
             title: $scope.title,
             category: $scope.category,
-            authors: $scope.authors
+            authors: $scope.authors,
+            conference: $scope.conference
         };
 
         $http({

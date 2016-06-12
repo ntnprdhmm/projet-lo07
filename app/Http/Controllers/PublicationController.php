@@ -28,8 +28,18 @@ class PublicationController extends Controller
                 'authors' => 'required',
             ]
         );
-        $categorie = Categorie::findOrFail($request->input('categorie_id'));
+        $categorie = Categorie::where(['name' => $request->input('category')])->findOrFail();
+
         $pub = new Publication();
+
+        if (in_array($categorie->slug, ['CI', 'CF'])) {
+            $this->validate(
+                $request, [
+                    'conference' => 'required|max:255',
+                ]
+            );
+            $pub->label = $request->input('conference');
+        }
         // $pub->label = $request->input('label');
         $pub->titre = $request->input('title');
         // $pub->annee = $request->input('annee');
