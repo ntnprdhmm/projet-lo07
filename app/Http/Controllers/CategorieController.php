@@ -9,14 +9,6 @@ class CategorieController extends Controller
 {
     public function getCategories()
     {
-        $categories = Categorie::all();
-
-        $retour = [];
-
-        foreach ($categories as $categorie) {
-            $retour[] = $categorie->slug.' : '.$categorie->name;
-        }
-
-        return $retour;
+        return Categorie::all();
     }
 }
