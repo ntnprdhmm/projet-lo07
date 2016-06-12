@@ -20,7 +20,7 @@
                 </div>
                 <div class="form-group">
                     <label for="anneeFilter">Annee</label>
-                    <input ng-model="search.annee" type="number" name="annee" class="form-control" id="anneeFilter" placeholder="yyyy" min="1970" max="2016">
+                    <input ng-model="search_annee" type="number" name="annee" class="form-control" id="anneeFilter" placeholder="yyyy" min="1970" max="2016">
                 </div>
                 <!-- <button type="submit" class="btn btn-primary">Rechercher</button> Inutile car données en live -->
             </form>
@@ -93,7 +93,7 @@
     </div>
 
     <div class="publication-box"
-         ng-repeat="publication in publications | filter:search:strict | filter:matchLab(filterLabo) | filter:matchAuthor(filtreAuteur) | orderBy:sortAnnee as filteredPublications">
+         ng-repeat="publication in publications | filter:{annee: search_annee || '!!'} | filter:matchLab(filterLabo) | filter:matchAuthor(filtreAuteur) | orderBy:sortAnnee as filteredPublications">
         <div class="panel panel-publication">
             <div class="panel-heading">
                 <div class="text-center">
