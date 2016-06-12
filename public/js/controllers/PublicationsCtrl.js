@@ -33,10 +33,11 @@ app.controller('PublicationsCtrl', function ($scope, $uibModal, $http) {
 
         return function (item) {
             for (var i = 0; i < item.auteurs.length; i++) {
+                console.log(item.auteurs[i]);
                 var _ = item.auteurs[i].nom + item.auteurs[i].prenom + item.auteurs[i].nom;
                 // Trick to match "nom prénom" or "prénom nom"
                 console.log(_);
-                if (_ != null && _ != undefined && _.toLowerCase().indexOf(author.toLowerCase()) !== -1)
+                if (_ != null && _ != undefined && _ != NaN && _.toLowerCase().indexOf(author.toLowerCase()) !== -1)
                     return true;
             }
             return false;
