@@ -84,7 +84,7 @@
         </div>
     </div>
 
-    <div class="publication-box" ng-repeat="publication in publications | filter:search:strict | filter:filterLabo:filterLab | filter:filtreAuteur:filterAuthor | orderBy:sortAnnee">
+    <div class="publication-box" ng-repeat="publication in publications | filter:search:strict | filter:matchLab(filterLabo) | filter:matchAuthor(filtreAuteur) | orderBy:sortAnnee">
         <div class="panel panel-publication">
             <div class="panel-heading">
                 <div class="text-center">

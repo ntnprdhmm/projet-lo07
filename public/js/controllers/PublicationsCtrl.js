@@ -9,16 +9,27 @@ app.controller('PublicationsCtrl', function ($scope, $uibModal, $http) {
         $scope.sortAnnee = order;
     };
 
-    $scope.filterLab = function (actual, expected) {
-        console.log(actual);
-        console.log(expected);
-        return true;
+    $scope.matchLab = function (lab) {
+        return function (item) {
+            for (var i = 0; i < item.auteurs.length; i++) {
+                var _ = item.auteurs[i].laboratoire;
+                if (_ != null && _ != undefined && _.toLowerCase().indexOf(lab) !== -1)
+                    return true;
+            }
+            return false;
+        };
     };
-    
-    $scope.filterAuthor = function (actual, expected) {
-        console.log(actual);
-        console.log(expected);
-        return true;
+
+    $scope.matchAuthor = function (author) {
+        return function (item) {
+            for (var i = 0; i < item.auteurs.length; i++) {
+                var _ = item.auteurs[i].nom + item.auteurs[i].prenom + item.auteurs[i].nom;
+                // Trick to match "nom prénom" or "prénom nom"
+                if (_ != null && _ != undefined && _.toLowerCase().indexOf(author) !== -1)
+                    return true;
+            }
+            return false;
+        };
     };
 
 
