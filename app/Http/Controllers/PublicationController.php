@@ -28,7 +28,7 @@ class PublicationController extends Controller
                 'authors' => 'required',
             ]
         );
-        $categorie = Categorie::where(['name' => $request->input('category')])->findOrFail();
+        $categorie = Categorie::where('name', $request->input('category'))->findOrFail();
 
         $pub = new Publication();
 
