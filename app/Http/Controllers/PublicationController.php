@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use App\Categorie;
 use App\Http\Requests;
 use App\Publication;
@@ -46,7 +47,7 @@ class PublicationController extends Controller
         $auteurs = array_map(function ($v) { return trim($v); }, explode(',', $request->input('authors')));
         foreach($auteurs as $_){
             $parts = explode(' ', $_);
-            $user = User::whereIn('nom', $parts)->orWhereIn('prenom', $parts)->first();
+            $user = User::whereIn('nom', $parts)->andWhereIn('prenom', $parts)->first();
             // ^ Laid, mais permet une certaine flexibilité pour l'utilisateur
             var_dump($user);
         }
