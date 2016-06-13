@@ -58,8 +58,7 @@ class AdminController extends Controller
             $hasUTTAuthor = false;
             $auteurs = $pub->auteurs()->get();
             foreach ($auteurs as $a) {
-                echo $a->nom.$a->prenom;
-                if ($a->organisation == 'ICD') {
+                if ($a->user->organisation == 'ICD') {
                     $hasUTTAuthor = true;
                 }
             }
