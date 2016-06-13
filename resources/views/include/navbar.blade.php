@@ -17,7 +17,18 @@
                     @if(Auth::user()->type == "admin")
                         <li><a href="#/admin"><b>administration</b></a></li>
                     @endif
-                    <li><a href="javascript:">Bonjour, {{ Auth::user()->login }}</a></li>
+                    <li class="dropdown">
+                        <a href="javascript:" class="dropdown-toggle" data-toggle="dropdown" >Bonjour, {{ Auth::user()->login }}</a>
+                        <ul id="login-dp" class="dropdown-menu">
+                            <li>
+                                <div class="row">
+                                    <div class="text-center bottom">
+                                        <a href="logout">Deconnexion</a>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
                 @else
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>Se connecter</b> <span class="caret"></span></a>

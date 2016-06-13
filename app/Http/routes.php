@@ -8,8 +8,7 @@ Route::get(
 
 Route::post('login', 'UserController@login');
 Route::post('api/register', 'UserController@register');
-
-Route::get('api/admin/accounts', 'AdminController@accounts');
+Route::get('logout', 'UserController@logout');
 
 Route::get('api/categories', 'CategorieController@getCategories');
 Route::get('api/laboratoires', 'LaboratoireController@getLaboratoires');

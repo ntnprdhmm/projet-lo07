@@ -51,4 +51,10 @@ class UserController extends Controller
             abort(403, 'Wrong username/password :-(');
         }
     }
+
+    public function logout(Request $request)
+    {
+        Auth::logout();
+        return response()->redirectToIntended('/');
+    }
 }
