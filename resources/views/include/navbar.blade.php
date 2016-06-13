@@ -44,15 +44,9 @@
                                             <div class="form-group">
                                                 <label class="sr-only" for="password">Mot de passe</label>
                                                 <input name="password" type="password" class="form-control" id="password" placeholder="Mot de passe" required>
-                                                <div class="help-block text-right"><a href="">Mot de passe oublié ?</a></div>
                                             </div>
                                             <div class="form-group">
                                                 <button type="submit" class="btn btn-primary btn-block">Connexion</button>
-                                            </div>
-                                            <div class="checkbox">
-                                                <label >
-                                                    <input type="checkbox"> Se souvenir
-                                                </label>
                                             </div>
                                         </form>
                                     </div>
