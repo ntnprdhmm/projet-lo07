@@ -8,6 +8,7 @@
         <uib-tab index="0" heading="Comptes">
 
             <br>
+            <h2>Comptes :</h2>
             <div class="list-group users-group" ng-repeat="user in users">
                 <span class="list-group-item-heading">{{ user.nom }} {{ user.prenom }}</span>
                 <div class="list-group-item-text">
@@ -20,7 +21,11 @@
         <!-- PROBLEMS -->
         <uib-tab index="1" heading="Anomalies">
 
-            Anomalies
+            <br>
+            <h2>Publications ayant le même titre :</h2>
+            <div class="list-group users-group" ng-repeat="doublon in doublons">
+                <span class="list-group-item-heading">{{ doublon.titre }}</span>
+            </div>
 
         </uib-tab>
 
