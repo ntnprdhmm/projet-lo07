@@ -67,10 +67,10 @@ class AdminController extends Controller
             }
 
             // Detect duplicate authors
-            $auteursCount = array_count_values($auteurs->all());
+            $auteursCount = array_count_values($auteurs->map(function ($a) { return $a->nom.$a->prenom; })->all());
             foreach ($auteursCount as $v => $c) {
                 if ($c != 1) {
-                    $errors[] = '#'.$pub->id.' '.$pub->titre.': Auteur '.$v->id.' présent '.$c.' fois !';
+                    $errors[] = '#'.$pub->id.' '.$pub->titre.': Auteur #'.$v.' présent '.$c.' fois !';
                 }
             }
         }
