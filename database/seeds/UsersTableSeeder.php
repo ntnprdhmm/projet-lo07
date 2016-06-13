@@ -68,6 +68,16 @@ class UsersTableSeeder extends Seeder
                     'login' => 'jmnigro',
                     'password' => '$2a$04$34lTl3puezeHDYb.lW4wYuvcYtv38H/CqdleUATtrqTBVwqOnI2yi',
                 ],
+                [
+                    'id' => 100,
+                    'nom' => 'admin',
+                    'prenom' => 'admin',
+                    'organisation' => 'UTT',
+                    'laboratoire' => '-',
+                    'login' => 'admin',
+                    'password' => bcrypt('admin'),
+                    'is_admin' => true,
+                ],
             ]
         );
     }

@@ -14,7 +14,7 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
                 @if(Auth::check())
-                    @if(Auth::user()->login == "admin")
+                    @if(Auth::user()->is_admin)
                         <li><a href="#/admin"><b>administration</b></a></li>
                     @endif
                     <li><a href="javascript:">Bonjour, {{ Auth::user()->login }}</a></li>
