@@ -51,4 +51,11 @@ class UserController extends Controller
             abort(403, 'Wrong username/password :-(');
         }
     }
+
+    public function me()
+    {
+        $me = json_encode(Auth::user());
+
+        return "app.value('me', '$me');";
+    }
 }
