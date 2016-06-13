@@ -50,7 +50,7 @@ class AdminController extends Controller
         $pubNames = array_count_values((array)collect($publications)->map(function ($x) { return $x->titre; })->all());
         foreach ($pubNames as $pub => $c) {
             if ($c != 1) {
-                $errors[] = $pub->titre.': ce titre est dupliqué.';
+                $errors[] = $pub['titre'].': ce titre est dupliqué.';
             }
         }
 
