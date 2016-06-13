@@ -98,6 +98,7 @@
             <div class="panel panel-publication">
                 <div class="panel-heading">
                     <div class="text-center">
+                        <span ng-show="{{ me.is_admin }}" class="label label-info">modifications : {{ publication.nb_update }}</span>
                         <div class="row">
                             <div class="col-sm-9">
                                 <h3 class="pull-left">{{ publication.titre }}</h3>
@@ -132,6 +133,7 @@
                     <div class="panel-heading">
                         <div class="text-center">
                             <div class="row">
+                                <span ng-show="{{ me.is_admin }}" class="label label-info">modifications : {{ publication.nb_update }}</span>
                                 <div class="col-sm-12">
                                     <div class="form-group">
                                         <label class="col-md-2 control-label">Titre</label>

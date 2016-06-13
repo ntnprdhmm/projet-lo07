@@ -21,6 +21,7 @@ class CreatePublicationsTable extends Migration
                 ->references('slug')
                 ->on('categories');
             $table->integer('annee');
+            $table->integer('nb_update');
             $table->string('lieu');
             $table->string('label'); // Label de l'ouvrage/conférence
         }

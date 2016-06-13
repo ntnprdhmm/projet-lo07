@@ -22,6 +22,9 @@ class PublicationController extends Controller
     {
         $publication = Publication::findOrFail($request->input('id'));
 
+        $publication->nb_update = $publication->nb_update + 1;
+        $publication->save();
+
         return response()->json(['publication' => $publication], 200);
     }
 
