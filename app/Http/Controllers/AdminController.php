@@ -74,5 +74,7 @@ class AdminController extends Controller
                 }
             }
         }
+
+        return $errors;
     }
 }
