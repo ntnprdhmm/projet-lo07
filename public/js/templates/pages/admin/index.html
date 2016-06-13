@@ -8,11 +8,17 @@
         <uib-tab index="0" heading="Comptes">
 
             <br>
+<<<<<<< HEAD
             <h2>Comptes :</h2>
             <div class="list-group users-group" ng-repeat="user in users">
                 <span class="list-group-item-heading">{{ user.nom }} {{ user.prenom }}</span>
+=======
+            <div class="list-group users-group" ng-repeat="user in users | orderBy:'-score'">
+                <span class="list-group-item-heading">[{{ user.score }} point(s)] {{ user.nom }} {{ user.prenom }}</span>
+>>>>>>> e763bcf77962cb7ebef3936c02f458799bebeff4
                 <div class="list-group-item-text">
-                    {{ user.organisation }} - {{ user.laboratoire }} <small>( {{ user.created_at }} )</small>
+                    {{ user.organisation }} - {{ user.laboratoire }}
+                    <small>( {{ user.created_at }} )</small>
                 </div>
             </div>
 
@@ -27,6 +33,10 @@
                 <span class="list-group-item-heading">{{ doublon.titre }}</span>
             </div>
 
+            <br>
+            <div class="list-group users-group" ng-repeat="error in anomalies">
+                <span class="list-group-item-heading">{{ error }}</span>
+            </div>
         </uib-tab>
 
     </uib-tabset>

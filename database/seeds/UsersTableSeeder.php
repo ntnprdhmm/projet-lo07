@@ -23,6 +23,7 @@ class UsersTableSeeder extends Seeder
                     'laboratoire' => 'TechCICO',
                     'login' => 'matix',
                     'password' => '$2a$04$34lTl3puezeHDYb.lW4wYuvcYtv38H/CqdleUATtrqTBVwqOnI2yi',
+                    'is_admin' => false,
                 ],
                 [
                     'id' => 2,
@@ -33,6 +34,7 @@ class UsersTableSeeder extends Seeder
                     'laboratoire' => 'TechCICO',
                     'login' => 'abenel',
                     'password' => '$2a$04$34lTl3puezeHDYb.lW4wYuvcYtv38H/CqdleUATtrqTBVwqOnI2yi',
+                    'is_admin' => false,
                 ],
                 [
                     'id' => 3,
@@ -43,6 +45,7 @@ class UsersTableSeeder extends Seeder
                     'laboratoire' => 'ERA',
                     'login' => 'memer',
                     'password' => '$2a$04$34lTl3puezeHDYb.lW4wYuvcYtv38H/CqdleUATtrqTBVwqOnI2yi',
+                    'is_admin' => false,
                 ],
                 [
                     'id' => 4,
@@ -53,6 +56,7 @@ class UsersTableSeeder extends Seeder
                     'laboratoire' => 'FAIR',
                     'login' => 'lecun',
                     'password' => '$2a$04$34lTl3puezeHDYb.lW4wYuvcYtv38H/CqdleUATtrqTBVwqOnI2yi',
+                    'is_admin' => false,
                 ],
                 [
                     'id' => 5,
@@ -63,6 +67,7 @@ class UsersTableSeeder extends Seeder
                     'laboratoire' => 'Tech-CICO',
                     'login' => 'ines',
                     'password' => '$2a$04$34lTl3puezeHDYb.lW4wYuvcYtv38H/CqdleUATtrqTBVwqOnI2yi',
+                    'is_admin' => false,
                 ],
                 [
                     'id' => 6,
@@ -73,6 +78,17 @@ class UsersTableSeeder extends Seeder
                     'laboratoire' => 'LM2S',
                     'login' => 'jmnigro',
                     'password' => '$2a$04$34lTl3puezeHDYb.lW4wYuvcYtv38H/CqdleUATtrqTBVwqOnI2yi',
+                    'is_admin' => false,
+                ],
+                [
+                    'id' => 100,
+                    'nom' => 'admin',
+                    'prenom' => 'admin',
+                    'organisation' => 'UTT',
+                    'laboratoire' => '-',
+                    'login' => 'admin',
+                    'password' => bcrypt('admin'),
+                    'is_admin' => true,
                 ],
                 [
                     'id' => 7,

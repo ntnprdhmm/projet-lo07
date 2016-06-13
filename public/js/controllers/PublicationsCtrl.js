@@ -1,6 +1,7 @@
-app.controller('PublicationsCtrl', function ($scope, $uibModal, $http) {
+app.controller('PublicationsCtrl', function ($scope, $uibModal, $http, me) {
 
     $scope.displayFilters = false;
+    $scope.me = me;
     $scope.displayForm = false;
 
     $scope.sortAnnee = '+annee';

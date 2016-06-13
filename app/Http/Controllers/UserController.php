@@ -52,9 +52,17 @@ class UserController extends Controller
         }
     }
 
+<<<<<<< HEAD
     public function logout(Request $request)
     {
         Auth::logout();
         return response()->redirectToIntended('/');
+=======
+    public function me()
+    {
+        $me = json_encode(Auth::user());
+
+        return "app.value('me', $me);";
+>>>>>>> e763bcf77962cb7ebef3936c02f458799bebeff4
     }
 }
