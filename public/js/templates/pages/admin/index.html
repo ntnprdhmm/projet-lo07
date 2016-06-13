@@ -9,7 +9,7 @@
 
             <br>
             <div class="list-group users-group" ng-repeat="user in users">
-                <span class="list-group-item-heading">{{ user.nom }} {{ user.prenom }}</span>
+                <span class="list-group-item-heading">[{{ user.score }} point(s)] {{ user.nom }} {{ user.prenom }}</span>
                 <div class="list-group-item-text">
                     {{ user.organisation }} - {{ user.laboratoire }} <small>( {{ user.created_at }} )</small>
                 </div>
