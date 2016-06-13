@@ -38,7 +38,6 @@ class AdminController extends Controller
             }
             $user->score = $score;
         }
-        $users = collect($users)->sortByDesc('score');
 
         return response()->json(['accounts' => $users], 200);
     }
