@@ -6,7 +6,6 @@ use App\Auteur;
 use App\Http\Requests;
 use App\Publication;
 use App\User;
-use App\Publication;
 use Auth;
 use Illuminate\Http\Request;
 

@@ -26,17 +26,17 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.5/angular-animate.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.5/angular-touch.min.js"></script>
     <!-- ANGULAR SCRIPTS-->
-    <script type="text/javascript" src="/js/app.js"></script>
-    <script type="text/javascript" src="/api/me"></script>
+    <script type="text/javascript" src="js/app.js"></script>
+    <script type="text/javascript" src="api/me"></script>
         <!-- controllers -->
-        <script type="text/javascript" src="/js/controllers/PublicationsCtrl.js"></script>
-        <script type="text/javascript" src="/js/controllers/NewPublicationCtrl.js"></script>
-        <script type="text/javascript" src="/js/controllers/ModalInstanceCtrl.js"></script>
-        <script type="text/javascript" src="/js/controllers/AdminCtrl.js"></script>
-        <script type="text/javascript" src="/js/controllers/InscriptionCtrl.js"></script>
+        <script type="text/javascript" src="js/controllers/PublicationsCtrl.js"></script>
+        <script type="text/javascript" src="js/controllers/NewPublicationCtrl.js"></script>
+        <script type="text/javascript" src="js/controllers/ModalInstanceCtrl.js"></script>
+        <script type="text/javascript" src="js/controllers/AdminCtrl.js"></script>
+        <script type="text/javascript" src="js/controllers/InscriptionCtrl.js"></script>
         <!-- DIRECTIVES -->
-        <script type="text/javascript" src="/js/directives/passwordVerify.js"></script>
+        <script type="text/javascript" src="js/directives/passwordVerify.js"></script>
     <!-- OTHERS SCRIPTS -->
-    <script type="text/javascript" src="/js/scripts/form.js"></script>
+    <script type="text/javascript" src="js/scripts/form.js"></script>
     @yield('script')
 </html>

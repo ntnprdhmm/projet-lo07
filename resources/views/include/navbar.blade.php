@@ -14,11 +14,7 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
                 @if(Auth::check())
-<<<<<<< HEAD
-                    @if(Auth::user()->type == "admin")
-=======
                     @if(Auth::user()->is_admin)
->>>>>>> e763bcf77962cb7ebef3936c02f458799bebeff4
                         <li><a href="#/admin"><b>administration</b></a></li>
                     @endif
                     <li class="dropdown">
