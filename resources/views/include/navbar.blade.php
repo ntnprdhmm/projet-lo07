@@ -23,7 +23,7 @@
                             <li>
                                 <div class="row">
                                     <div class="text-center bottom">
-                                        <a href="logout">Deconnexion</a>
+                                        <a href="logout">Déconnexion</a>
                                     </div>
                                 </div>
                             </li>
