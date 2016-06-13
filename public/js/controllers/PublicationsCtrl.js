@@ -15,6 +15,26 @@ app.controller('PublicationsCtrl', function ($scope, $uibModal, $http, me) {
         $scope.sortAnnee = order;
     };
 
+    $scope.updatePublicationFormSubmit = function() {
+
+        $scope.updateData = {
+            title: $scope.title,
+            category: $scope.category,
+            auteurs: $scope.auteurs,
+            lieu: $scope.lieu
+        };
+
+        $http({
+            method: 'POST',
+            url: 'api/publications',
+            data: $.param($scope.updateData)
+        }).success(function (data) {
+            console.log(data);
+            alert('UPDATE OK ! :)');
+        });
+
+    };
+
     $scope.showPublication = function(auteurs, me) {
 
         for(var i = 0; i < auteurs.length; i++)

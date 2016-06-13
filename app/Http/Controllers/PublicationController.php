@@ -18,6 +18,13 @@ class PublicationController extends Controller
         return $publications;
     }
 
+    public function updatePublications(Request $request)
+    {
+        $publication = Publication::findOrFail($request->input('id'));
+
+        return response()->json(['publication' => $publication], 200);
+    }
+
     public function addPublications(Request $request)
     {
         $this->validate(

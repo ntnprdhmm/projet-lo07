@@ -19,4 +19,5 @@ Route::get('api/me', 'UserController@me');
 Route::get('api/categories', 'CategorieController@getCategories');
 Route::get('api/laboratoires', 'LaboratoireController@getLaboratoires');
 Route::get('api/publications', 'PublicationController@getPublications');
+Route::post('api/publications', 'PublicationController@updatePublications');
 Route::put('api/publications', 'PublicationController@addPublications');
