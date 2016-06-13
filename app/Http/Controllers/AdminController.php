@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Auteur;
 use App\Http\Requests;
+use App\Publication;
 use App\User;
 use Auth;
 use Illuminate\Http\Request;
@@ -40,5 +41,38 @@ class AdminController extends Controller
         }
 
         return response()->json(['accounts' => $users], 200);
+    }
+
+    public function anomalies()
+    {
+        $errors = [];
+        $publications = Publication::with('auteurs')->get();
+        $pubNames = array_count_values(collect($publications)->map(function ($x) { return $x->titre; }));
+        foreach ($pubNames as $pub => $c) {
+            if ($c != 1) {
+                $errors[] = $pub->titre.': ce titre est dupliqué.';
+            }
+        }
+
+        foreach ($publications as $pub) {
+            $hasUTTAuthor = false;
+            $auteurs = $pub->auteurs()->get();
+            foreach ($auteurs as $a) {
+                if ($a->organisation == 'ICD') {
+                    $hasUTTAuthor = true;
+                }
+            }
+            if (!$hasUTTAuthor) {
+                $errors[] = '#'.$pub->id.' '.$pub->titre.' n\'a pas d\'auteur à l\'UTT.';
+            }
+
+            // Detect duplicate authors
+            $auteursCount = array_count_values($auteurs);
+            foreach ($auteursCount as $v => $c) {
+                if ($c != 1) {
+                    $errors[] = '#'.$pub->id.' '.$pub->titre.': Auteur '.$v->id.' présent '.$c.' fois !';
+                }
+            }
+        }
     }
 }

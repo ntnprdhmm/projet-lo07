@@ -12,7 +12,7 @@ class Publication extends Model
 
     public function auteurs()
     {
-        return $this->hasMany('App\Auteur')->orderBy('position')->with('user');
+        return $this->hasMany('App\Auteur', 'publication_id')->orderBy('position')->with('user');
     }
 
     public function categorie()
