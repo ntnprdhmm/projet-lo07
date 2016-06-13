@@ -48,9 +48,9 @@ class AdminController extends Controller
         $errors = [];
         $publications = Publication::with('auteurs')->get();
         $pubNames = array_count_values((array)collect($publications)->map(function ($x) { return $x->titre; })->all());
-        foreach ($pubNames as $pub => $c) {
+        foreach ($pubNames as $titre => $c) {
             if ($c != 1) {
-                $errors[] = $pub['titre'].': ce titre est dupliqué.';
+                $errors[] = $titre.': ce titre est dupliqué.';
             }
         }
 
