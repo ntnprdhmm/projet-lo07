@@ -160,7 +160,7 @@ section {
     text-align: center;
 }
 
-#category {
+.category {
     margin-left: 14px;
 }
 
@@ -179,4 +179,8 @@ section {
 
 .label-auteur {
     margin-right: 10px;
+}
+
+.update-button {
+    margin-top: 10px;
 }

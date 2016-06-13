@@ -3,11 +3,42 @@ app.controller('PublicationsCtrl', function ($scope, $uibModal, $http, me) {
     $scope.displayFilters = false;
     $scope.me = me;
     $scope.displayForm = false;
+    $scope.showUpdateForm = false;
 
     $scope.sortAnnee = '+annee';
 
+    $http({url: 'api/categories'}).success(function (data) {
+        $scope.categories = data;
+    });
+
     $scope.setSort = function (order) {
         $scope.sortAnnee = order;
+    };
+
+    $scope.showPublication = function(auteurs, me) {
+
+        for(var i = 0; i < auteurs.length; i++)
+        {
+            if(auteurs[i].user.id == me.id)
+            {
+                return $scope.showUpdateForm;
+            }
+        }
+        return false && $scope.showUpdateForm;
+    };
+
+    $scope.getListAuthors = function(auteurs) {
+
+        var str = "";
+        for(var i = 0; i < auteurs.length; i++)
+        {
+            str += auteurs[i].user.prenom + " " + auteurs[i].user.nom;
+            if(i != auteurs.length -1)
+            {
+                str += ", ";
+            }
+        }
+        return str;
     };
 
     $scope.matchLab = function (lab) {
@@ -63,6 +94,10 @@ app.controller('PublicationsCtrl', function ($scope, $uibModal, $http, me) {
             $scope.toggleForm();
         }
         $scope.displayFilters = !$scope.displayFilters;
+    };
+
+    $scope.toggleUpdateForm = function () {
+        $scope.showUpdateForm = !$scope.showUpdateForm;
     };
 
     $scope.annees = [];
