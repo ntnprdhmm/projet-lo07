@@ -47,7 +47,7 @@ class AdminController extends Controller
     {
         $errors = [];
         $publications = Publication::with('auteurs')->get();
-        $pubNames = array_count_values((array)collect($publications)->map(function ($x) { return $x->titre; })->all);
+        $pubNames = array_count_values((array)collect($publications)->map(function ($x) { return $x->titre; })->all());
         foreach ($pubNames as $pub => $c) {
             if ($c != 1) {
                 $errors[] = $pub->titre.': ce titre est dupliqué.';
@@ -67,7 +67,7 @@ class AdminController extends Controller
             }
 
             // Detect duplicate authors
-            $auteursCount = array_count_values($auteurs->all());
+            $auteursCount = array_count_values($auteurs);
             foreach ($auteursCount as $v => $c) {
                 if ($c != 1) {
                     $errors[] = '#'.$pub->id.' '.$pub->titre.': Auteur '.$v->id.' présent '.$c.' fois !';
