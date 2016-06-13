@@ -13,7 +13,7 @@ app.controller('InscriptionCtrl', function ($scope, $http) {
 
         $http({
             method: 'POST',
-            url: '/api/register',
+            url: 'api/register',
             data: $.param($scope.formData),
             headers: {'Content-Type': 'application/x-www-form-urlencoded'}
         }).success(function (data) {

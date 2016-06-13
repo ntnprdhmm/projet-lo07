@@ -72,11 +72,11 @@ app.controller('PublicationsCtrl', function ($scope, $uibModal, $http) {
 
     // http requests
 
-    $http({url: '/api/laboratoires'}).success(function (data) {
+    $http({url: 'api/laboratoires'}).success(function (data) {
         $scope.laboratoires = data;
     });
 
-    $http({url: '/api/publications'}).success(function (data) {
+    $http({url: 'api/publications'}).success(function (data) {
         $scope.publications = data;
     });
 

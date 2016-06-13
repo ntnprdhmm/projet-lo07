@@ -1,6 +1,6 @@
 app.controller('NewPublicationCtrl', function ($scope, $http) {
 
-    $http({url: '/api/categories'}).success(function (data) {
+    $http({url: 'api/categories'}).success(function (data) {
         $scope.categories = data;
     });
 
@@ -16,7 +16,7 @@ app.controller('NewPublicationCtrl', function ($scope, $http) {
 
         $http({
             method: 'PUT',
-            url: '/api/publications',
+            url: 'api/publications',
             data: $.param($scope.formData),
             headers: {'Content-Type': 'application/x-www-form-urlencoded'}
         }).success(function (data) {
