@@ -56,6 +56,6 @@ class UserController extends Controller
     {
         $me = json_encode(Auth::user());
 
-        return "app.value('me', '$me');";
+        return "app.value('me', $me);";
     }
 }
