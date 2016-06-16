@@ -137,20 +137,6 @@ app.controller('PublicationsCtrl', function ($scope, $uibModal, $http, me) {
     });
 
     // MODAL
-    $scope.collaborateurs = [
-        {
-            name: "jean paul",
-            collaborations: 16
-        },
-        {
-            name: "michel",
-            collaborations: 9
-        },
-        {
-            name: "bernard",
-            collaborations: 2
-        }
-    ];
 
     $scope.open = function (size, author) {
         var modalInstance = $uibModal.open({
@@ -161,9 +147,6 @@ app.controller('PublicationsCtrl', function ($scope, $uibModal, $http, me) {
             resolve: {
                 author: function () {
                     return author;
-                },
-                collaborateurs: function () {
-                    return $scope.collaborateurs;
                 },
                 listScope: function(){
                     return $scope;

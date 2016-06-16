@@ -7,7 +7,7 @@
             <button ng-click="toggleFilters()" class="btn btn-primary" id="btn-filtrer-publication">Filtrer</button>
             <button ng-show="me" ng-click="toggleForm()" class="btn btn-success" id="btn-creation-publication">Créer publication
             </button>
-            <button ng-show="me" ng-click="toggleUpdateForm()" class="btn btn-info" id="btn-modifier-publication">Modifier</button>
+            <!--<button ng-show="me" ng-click="toggleUpdateForm()" class="btn btn-info" id="btn-modifier-publication">Modifier</button>-->
         </div>
 
         <div id="form-filtre-container" ng-show="displayFilters" class="container-fluid">
@@ -98,7 +98,7 @@
             <div class="panel panel-publication">
                 <div class="panel-heading">
                     <div class="text-center">
-                        <span ng-show="{{ me.is_admin }}" class="label label-info">modifications : {{ publication.nb_update }}</span>
+                        <!--<span ng-show="{{ me.is_admin }}" class="label label-info">modifications : {{ publication.nb_update }}</span>-->
                         <div class="row">
                             <div class="col-sm-9">
                                 <h3 class="pull-left">{{ publication.titre }}</h3>

@@ -73,6 +73,21 @@ class PublicationController extends Controller
         return response()->json(['status' => 'success'], 200);
     }
 
+    public function getCollaborateurs($id)
+    {
+        return DB::select(
+            '
+SELECT `nom`, `prenom`, COUNT(`id`)
+FROM `auteurs`
+NATURAL JOIN `users`
+WHERE `publication_id` IN (SELECT `publication_id` FROM `auteurs` WHERE `user_id` = ?)
+
+GROUP BY `user_id`
+ORDER BY COUNT(`id`) DESC
+', [$id]
+        );
+    }
+
     public function requetesDemo()
     {
         // Liste des publications présente dans la base dans l'ordre chronologique (ordonnée par catégorie et par année

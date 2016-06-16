@@ -1,7 +1,17 @@
 app.controller('ModalInstanceCtrl', function ($scope, $uibModalInstance, author, collaborateurs, listScope) {
 
     $scope.author = author;
-    $scope.collaborateurs = collaborateurs;
+    
+    $scope.collaborateurs = [];
+
+    $http({
+        url: 'api/collaborateurs/' + author.user.id
+    }).success(function (data) {
+        $scope.collaborateurs = data;
+        console.log(data);
+    });
+
+
     $scope.listScope = listScope;
 
     $scope.search = function () {
