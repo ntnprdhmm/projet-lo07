@@ -78,13 +78,13 @@ class PublicationController extends Controller
     {
         return DB::select(
             '
-SELECT `nom`, `prenom`, COUNT(`id`) AS collaborations
+SELECT `nom`, `prenom`, COUNT(`auteurs`.`id`) AS collaborations
 FROM `auteurs`
-NATURAL JOIN `users`
+RIGHT JOIN `users` ON `users`.`id`=`auteurs`.`user_id`
 WHERE `publication_id` IN (SELECT `publication_id` FROM `auteurs` WHERE `user_id` = ?)
 
 GROUP BY `user_id`
-ORDER BY COUNT(`id`) DESC
+ORDER BY COUNT(`auteurs`.`id`) DESC
 ', [$id]
         );
     }
