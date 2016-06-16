@@ -1,4 +1,4 @@
-app.controller('ModalInstanceCtrl', function ($scope, $uibModalInstance, author, listScope) {
+app.controller('ModalInstanceCtrl', function ($scope, $uibModalInstance, author, listScope, $http) {
 
     $scope.author = author;
 
