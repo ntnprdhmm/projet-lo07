@@ -7,14 +7,23 @@ app.controller('UpdatePublicationCtrl', function ($scope, $http, $routeParams, m
         $scope.categories = data;
     });
 
+    $scope.formData = {id: 0, titre: "", auteurs: [], categorie: "", lieu: ""};
+
     $http({url: 'api/publication', params: {id: $scope.publication_id}}).success(function (data) {
+        data = data.publication[0];
         $scope.publication = data;
+        $scope.formData.id = $scope.publication_id;
+        $scope.formData.titre = data.titre;
+        $scope.formData.auteurs = $scope.getListAuthors(data.auteurs);
+        $scope.formData.categorie = data.categorie.slug;
+        console.log(data.categorie);
+        $scope.formData.lieu = data.lieu;
     });
 
-    $scope.formData = {};
 
     $scope.showPublication = function (auteurs, me) {
-
+        if(auteurs == undefined || auteurs == null)
+            return false;
         for (var i = 0; i < auteurs.length; i++) {
             if (auteurs[i].user.id == me) {
                 return true;
@@ -36,7 +45,6 @@ app.controller('UpdatePublicationCtrl', function ($scope, $http, $routeParams, m
     };
 
     $scope.updatePublication = function () {
-
         $http({
             method: 'POST',
             url: 'api/publication',
@@ -44,7 +52,7 @@ app.controller('UpdatePublicationCtrl', function ($scope, $http, $routeParams, m
             headers: {'Content-Type': 'application/x-www-form-urlencoded'}
         }).success(function (data) {
             console.log(data);
-            alert(data.publication);
+            alert("OK !");
         });
 
     };

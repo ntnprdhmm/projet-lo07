@@ -28,11 +28,28 @@ class PublicationController extends Controller
 
     public function updatePublication(Request $request)
     {
-        //$publication = Publication::where('id',$request->input('id'))->with('categorie', 'auteurs')->get();
+        $publication = Publication::where('id',$request->input('id'))->with('categorie', 'auteurs')->first();
+        //var_dump($publication);
+        $publication->nb_update = $publication->nb_update + 1;
+        $publication->titre = $request->input('titre');
+        $publication->categorie_id = $request->input('categorie');
+        $publication->save();
 
-        //$publication->nb_update = $publication->nb_update + 1;
-        //$publication->title = $request->input('title');
-        //$publication->save();
+        Auteur::where('publication_id', $publication->id)->delete();
+
+        $auteurs = array_map(function ($v) { return trim($v); }, explode(',', $request->input('auteurs')));
+        $pos = 0;
+        foreach ($auteurs as $_) {
+            $parts = explode(' ', $_);
+            $user = User::whereIn('nom', $parts)->whereIn('prenom', $parts)->first();
+            // ^ Laid, mais permet une certaine flexibilité pour l'utilisateur
+            // Ne fonctionne pas avec "Jean Jean", mais ... cas trop rare pour mériter mon attention
+
+            if ($user == null) {
+                $user = User::create(['nom' => $_, 'prenom' => '']);
+            }
+            Auteur::create(['publication_id' => $publication->id, 'user_id' => $user->id, 'position' => ++$pos]);
+        }
 
         return response()->json(['publication' => "id : " .$request->input('id')]);
     }
