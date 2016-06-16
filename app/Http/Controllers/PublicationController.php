@@ -82,10 +82,10 @@ SELECT `nom`, `prenom`, COUNT(`auteurs`.`id`) AS collaborations
 FROM `auteurs`
 RIGHT JOIN `users` ON `users`.`id`=`auteurs`.`user_id`
 WHERE `publication_id` IN (SELECT `publication_id` FROM `auteurs` WHERE `user_id` = ?)
-
+AND user_id != ?
 GROUP BY `user_id`
 ORDER BY COUNT(`auteurs`.`id`) DESC
-', [$id]
+', [$id, $id]
         );
     }
 
