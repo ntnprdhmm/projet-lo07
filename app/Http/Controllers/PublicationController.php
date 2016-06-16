@@ -7,6 +7,7 @@ use App\Categorie;
 use App\Http\Requests;
 use App\Publication;
 use App\User;
+use DB;
 use Illuminate\Http\Request;
 
 class PublicationController extends Controller
