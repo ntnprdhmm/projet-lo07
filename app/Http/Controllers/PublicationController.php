@@ -19,14 +19,23 @@ class PublicationController extends Controller
         return $publications;
     }
 
-    public function updatePublications(Request $request)
+    public function getPublication(Request $request)
     {
-        $publication = Publication::findOrFail($request->input('id'));
+        $publication = Publication::where('id',$request->input('id'))->with('categorie', 'auteurs')->get();
 
-        $publication->nb_update = $publication->nb_update + 1;
-        $publication->save();
+        return response()->json(['publication' => $publication, 200]);
+    }
 
-        return response()->json(['publication' => $publication], 200);
+    public function updatePublication(Request $request)
+    {
+        //$publication = Publication::where('id',$request->input('id'))->with('categorie', 'auteurs')->get();
+
+        //$publication->nb_update = $publication->nb_update + 1;
+        //$publication->title = $request->input('title');
+        //$publication->lieu = $request->input('lieu');
+        //$publication->save();
+
+        return response()->json(['publication' => $request->input('id')]);
     }
 
     public function addPublications(Request $request)

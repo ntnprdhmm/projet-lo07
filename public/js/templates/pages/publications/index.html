@@ -7,7 +7,6 @@
             <button ng-click="toggleFilters()" class="btn btn-primary" id="btn-filtrer-publication">Filtrer</button>
             <button ng-show="me" ng-click="toggleForm()" class="btn btn-success" id="btn-creation-publication">Créer publication
             </button>
-            <!--<button ng-show="me" ng-click="toggleUpdateForm()" class="btn btn-info" id="btn-modifier-publication">Modifier</button>-->
         </div>
 
         <div id="form-filtre-container" ng-show="displayFilters" class="container-fluid">
@@ -44,6 +43,7 @@
             <form name="newPublicationForm" class="form-horizontal"
                   ng-submit="newPublicationFormSubmit(newPublicationForm.$valid)" novalidate autocomplete="off"
                   enctype="multipart/form-data">
+
                 <div class="form-group">
                     <label for="title" class="col-sm-2">Titre de la publication *</label>
                     <div class="col-sm-10">
@@ -51,12 +51,14 @@
                                ng-model="title" ng-minlength="3" ng-maxlength="200" required/>
                     </div>
                 </div>
+
                 <div class="form-group">
                     <label for="annee" class="col-sm-2">Année de la publication *</label>
                     <select class="btn btn-success" name="annee" id="annee" ng-model="annee" required>
                         <option value="{{ i }}" ng-repeat="i in annees">{{ i }}</option>
                     </select>
                 </div>
+
                 <div class="form-group">
                     <label for="category" class="col-sm-2">Catégorie de l'article *</label>
                     <select class="btn btn-success category " name="category" id="category" ng-model="category" required>
@@ -65,6 +67,7 @@
                         </option>
                     </select>
                 </div>
+
                 <div class="form-group"
                      ng-show="category=='CI' || category=='CF'">
                     <label for="conference" class="col-sm-2">Lieu de la conférence</label>
@@ -73,6 +76,7 @@
                                placeholder="Conférence" ng-model="conference" ng-minlength="3" ng-maxlength="100"/>
                     </div>
                 </div>
+
                 <div class="form-group">
                     <label for="authors" class="col-sm-2">Auteurs *</label>
                     <div class="col-sm-offset-2 col-sm-10">
@@ -80,6 +84,7 @@
                                placeholder="auteur1, auteur2, ..." ng-model="authors" ng-minlength="3" required>
                     </div>
                 </div>
+
                 <div class="form-group">
                     <div class="col-sm-offset-2 col-sm-10">
                         <button type="submit" class="btn btn-success" ng-disabled="newPublicationForm.$invalid">
@@ -87,18 +92,19 @@
                         </button>
                     </div>
                 </div>
+
             </form>
         </div>
     </div>
 
     <div
          ng-repeat="publication in publications | filter:{annee: search_annee || '!!'} | filter:matchLab(filterLabo) | filter:matchAuthor(filtreAuteur) | orderBy:sortAnnee as filteredPublications">
-        <!-- cache si auteur-->
-        <div class="publication-box" ng-hide="showPublication({{publication.auteurs}}, {{me || false}})">
+
+        <div class="publication-box">
             <div class="panel panel-publication">
                 <div class="panel-heading">
                     <div class="text-center">
-                        <!--<span ng-show="{{ me.is_admin }}" class="label label-info">modifications : {{ publication.nb_update }}</span>-->
+
                         <div class="row">
                             <div class="col-sm-9">
                                 <h3 class="pull-left">{{ publication.titre }}</h3>
@@ -117,68 +123,12 @@
                     <span ng-show="publication.categorie_id=='CF'||publication.categorie_id=='CI'">{{ publication.lieu }}</span><br>
                 </div>
 
-                <div class="panel-footer">
-                    <a ng-repeat="auteur in publication.auteurs" class="label label-default label-auteur"
-                       ng-click="open('lg', auteur.user)">
-                        {{ auteur.user.prenom }} {{ auteur.user.nom }}
+                <div ng-show="showUpdateButton({{publication.auteurs}}, {{me.id || 0}})" class="container">
+                    <a href="#/publications/{{publication.id}}">
+                        <button class="btn btn-info">Modifier</button>
                     </a>
                 </div>
-            </div>
-        </div>
-        <!-- modifications -->
-        <div class="publication-box" ng-show="showPublication({{publication.auteurs}}, {{me || false}})">
-            <div class="panel panel-publication">
-                <form ng-submit="updatePublicationFormSubmit()" autocomplete="off">
-                    <input type="hidden" value="{{publication.id}}">
-                    <div class="panel-heading">
-                        <div class="text-center">
-                            <div class="row">
-                                <span ng-show="{{ me.is_admin }}" class="label label-info">modifications : {{ publication.nb_update }}</span>
-                                <div class="col-sm-12">
-                                    <div class="form-group">
-                                        <label class="col-md-2 control-label">Titre</label>
-                                        <div class="col-md-7">
-                                            <input type="text" name="title" class="form-control" placeholder="Titre de la publication" value="{{ publication.titre }}">
-                                        </div>
-                                    </div>
-                                    <h4 class="pull-right">
-                                        <small><em>{{ publication.annee }}</em></small>
-                                    </h4>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
 
-                    <div class="panel-body">
-                        <div class="form-group">
-                            <label class="col-md-2 control-label">Categorie</label>
-                            <select class="btn btn-success category " name="category" ng-model="category">
-                                <option value="{{ categorie.slug }}" ng-repeat="categorie in categories" ng-selected="categorie.slug === publication.categorie.slug">{{ categorie.slug }} :
-                                    {{ categorie.name }}
-                                </option>
-                            </select>
-                        </div>
-                        <div class="form-group" ng-show="publication.categorie_id=='CF'||publication.categorie_id=='CI'">
-                            <label class="col-md-2 control-label">Lieu</label>
-                            <div class="col-md-10">
-                                <input type="text" class="form-control" name="lieu" placeholder="Lieu" value="{{ publication.lieu }}">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-md-2 control-label">Auteurs</label>
-                            <div class="col-md-10">
-                                <input type="text" class="form-control" name="auteurs" placeholder="Auteurs" ng-value="getListAuthors( {{publication.auteurs}} )">
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-sm-offset-2 col-sm-10">
-                                <button type="submit" class="btn btn-info update-button">Modifier</button>
-                            </div>
-                        </div>
-                    </div>
-
-                </form>
                 <div class="panel-footer">
                     <a ng-repeat="auteur in publication.auteurs" class="label label-default label-auteur"
                        ng-click="open('lg', auteur.user)">

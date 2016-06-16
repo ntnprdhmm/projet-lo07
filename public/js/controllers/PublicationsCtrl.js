@@ -3,7 +3,6 @@ app.controller('PublicationsCtrl', function ($scope, $uibModal, $http, me) {
     $scope.displayFilters = false;
     $scope.me = me;
     $scope.displayForm = false;
-    $scope.showUpdateForm = false;
 
     $scope.sortAnnee = '+annee';
 
@@ -15,34 +14,14 @@ app.controller('PublicationsCtrl', function ($scope, $uibModal, $http, me) {
         $scope.sortAnnee = order;
     };
 
-    $scope.updatePublicationFormSubmit = function () {
-
-        $scope.updateData = {
-            title: $scope.title,
-            category: $scope.category,
-            auteurs: $scope.auteurs,
-            lieu: $scope.lieu
-        };
-
-        $http({
-            method: 'POST',
-            url: 'api/publications',
-            data: $.param($scope.updateData)
-        }).success(function (data) {
-            console.log(data);
-            alert('UPDATE OK ! :)');
-        });
-
-    };
-
-    $scope.showPublication = function (auteurs, me) {
+    $scope.showUpdateButton = function (auteurs, me) {
 
         for (var i = 0; i < auteurs.length; i++) {
-            if (auteurs[i].user.id == me.id) {
-                return $scope.showUpdateForm;
+            if (auteurs[i].user.id == me) {
+                return true;
             }
         }
-        return false && $scope.showUpdateForm;
+        return false;
     };
 
     $scope.getListAuthors = function (auteurs) {

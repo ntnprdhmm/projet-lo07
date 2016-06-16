@@ -1,0 +1,73 @@
+<div class="container first-container" ng-controller="UpdatePublicationCtrl">
+
+    <h1>Modification de la publication {{ publication_id }}</h1>
+
+    <a href="#/publications">
+        <button class="btn btn-info">Retour aux publications</button>
+    </a>
+
+    <div class="publication-box" ng-if="showPublication(publication.publication[0].auteurs, me.id, publication.publication[0].auteurs.length)" >
+        <div class="panel panel-publication">
+            <form ng-submit="updatePublication()">
+                <input type="hidden" name="id" ng-model="formData.id" value="{{publication.publication[0].id}}">
+                <div class="panel-heading">
+                    <div class="text-center">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label class="col-md-2 control-label">Titre</label>
+                                    <div class="col-md-7">
+                                        <input type="text" name="titre" ng-model="formData.titre" class="form-control" placeholder="Titre de la publication" ng-value="publication.publication[0].titre">
+                                    </div>
+                                </div>
+                                <h4 class="pull-right">
+                                    <small><em>{{ publication.publication[0].annee }}</em></small>
+                                </h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel-body">
+
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">Categorie</label>
+                        <select class="btn btn-success category " name="categorie" ng-model="formData.categorie">
+                            <option ng-value="categorie.slug" ng-repeat="categorie in categories" ng-selected="categorie.slug == publication.publication[0].categorie.slug">{{ categorie.slug }} :
+                                {{ categorie.name }}
+                            </option>
+                        </select>
+                    </div>
+
+                    <div class="form-group" ng-show="publication.publication[0].categorie_id=='CF'||publication.publication[0].categorie_id=='CI'">
+                        <label class="col-md-2 control-label">Lieu</label>
+                        <div class="col-md-10">
+                            <input type="text" ng-model="formData.lieu" class="form-control" name="lieu" placeholder="Lieu" ng-value="publication.publication[0].lieu">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">Auteurs</label>
+                        <div class="col-md-10">
+                            <input type="text" class="form-control" ng-model="formData.auteurs" name="auteurs" placeholder="Auteurs" ng-value="getListAuthors( publication.publication[0].auteurs )">
+                        </div>
+                    </div>
+
+                    <div class="form-group ">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button type="submit" class="btn btn-info update-button">Modifier</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div ng-hide="showPublication(publication.publication[0].auteurs, me.id)">
+        <br>
+        <div class="alert alert-danger" role="alert">
+            <b>Erreur : </b> Vous n'avez pas le droit de modifier cette publication !
+        </div>
+    </div>
+
+</div>
