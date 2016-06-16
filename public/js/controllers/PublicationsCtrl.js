@@ -15,7 +15,7 @@ app.controller('PublicationsCtrl', function ($scope, $uibModal, $http, me) {
         $scope.sortAnnee = order;
     };
 
-    $scope.updatePublicationFormSubmit = function() {
+    $scope.updatePublicationFormSubmit = function () {
 
         $scope.updateData = {
             title: $scope.title,
@@ -35,26 +35,22 @@ app.controller('PublicationsCtrl', function ($scope, $uibModal, $http, me) {
 
     };
 
-    $scope.showPublication = function(auteurs, me) {
+    $scope.showPublication = function (auteurs, me) {
 
-        for(var i = 0; i < auteurs.length; i++)
-        {
-            if(auteurs[i].user.id == me.id)
-            {
+        for (var i = 0; i < auteurs.length; i++) {
+            if (auteurs[i].user.id == me.id) {
                 return $scope.showUpdateForm;
             }
         }
         return false && $scope.showUpdateForm;
     };
 
-    $scope.getListAuthors = function(auteurs) {
+    $scope.getListAuthors = function (auteurs) {
 
         var str = "";
-        for(var i = 0; i < auteurs.length; i++)
-        {
+        for (var i = 0; i < auteurs.length; i++) {
             str += auteurs[i].user.prenom + " " + auteurs[i].user.nom;
-            if(i != auteurs.length -1)
-            {
+            if (i != auteurs.length - 1) {
                 str += ", ";
             }
         }
@@ -148,7 +144,7 @@ app.controller('PublicationsCtrl', function ($scope, $uibModal, $http, me) {
                 author: function () {
                     return author;
                 },
-                listScope: function(){
+                listScope: function () {
                     return $scope;
                 }
             }
