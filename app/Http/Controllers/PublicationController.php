@@ -78,7 +78,7 @@ class PublicationController extends Controller
     {
         return DB::select(
             '
-SELECT `nom`, `prenom`, COUNT(`id`)
+SELECT `nom`, `prenom`, COUNT(`id`) AS collaborations
 FROM `auteurs`
 NATURAL JOIN `users`
 WHERE `publication_id` IN (SELECT `publication_id` FROM `auteurs` WHERE `user_id` = ?)
