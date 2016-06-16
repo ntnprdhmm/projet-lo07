@@ -40,10 +40,11 @@ app.controller('UpdatePublicationCtrl', function ($scope, $http, $routeParams, m
         $http({
             method: 'POST',
             url: 'api/publication',
-            data: $.param($scope.formData)
+            data: $.param($scope.formData),
+            headers: {'Content-Type': 'application/x-www-form-urlencoded'}
         }).success(function (data) {
             console.log(data);
-            alert('UPDATE OK ! :)');
+            alert(data.publication);
         });
 
     };

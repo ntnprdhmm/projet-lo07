@@ -32,10 +32,9 @@ class PublicationController extends Controller
 
         //$publication->nb_update = $publication->nb_update + 1;
         //$publication->title = $request->input('title');
-        //$publication->lieu = $request->input('lieu');
         //$publication->save();
 
-        return response()->json(['publication' => $request->input('id')]);
+        return response()->json(['publication' => "id : " .$request->input('id')]);
     }
 
     public function addPublications(Request $request)

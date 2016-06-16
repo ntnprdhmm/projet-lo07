@@ -33,7 +33,7 @@
                     <div class="form-group">
                         <label class="col-md-2 control-label">Categorie</label>
                         <select class="btn btn-success category " name="categorie" ng-model="formData.categorie">
-                            <option ng-value="categorie.slug" ng-repeat="categorie in categories" ng-selected="categorie.slug == publication.publication[0].categorie.slug">{{ categorie.slug }} :
+                            <option value="{{categorie.slug}}" ng-repeat="categorie in categories" ng-selected="categorie.slug == publication.publication[0].categorie.slug">{{ categorie.slug }} :
                                 {{ categorie.name }}
                             </option>
                         </select>
