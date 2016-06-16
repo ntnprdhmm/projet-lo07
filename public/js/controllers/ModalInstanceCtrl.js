@@ -5,7 +5,7 @@ app.controller('ModalInstanceCtrl', function ($scope, $uibModalInstance, author,
     $scope.collaborateurs = [];
 
     $http({
-        url: 'api/collaborateurs/' + author.user.id
+        url: 'api/collaborateurs/' + author.id
     }).success(function (data) {
         $scope.collaborateurs = data;
         console.log(data);
